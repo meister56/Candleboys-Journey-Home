@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://1y3obbpe25pm"]
+[gd_scene load_steps=2 format=3 uid="uid://1y3obbpe25pm"]
+
+[ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Prefabs/CandleBoy.scn" id="1_ne518"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CandleBoy" parent="." instance=ExtResource("1_ne518")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
