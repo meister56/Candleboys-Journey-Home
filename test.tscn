@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://1y3obbpe25pm"]
+[gd_scene load_steps=4 format=3 uid="uid://1y3obbpe25pm"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Prefabs/CandleBoy.scn" id="1_ne518"]
+[ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Prefabs/DarkEnvironment.scn" id="2_b2i20"]
+
+[sub_resource type="TileSet" id="TileSet_n2bsd"]
+tile_size = Vector2i(64, 55)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CandleBoy" parent="." instance=ExtResource("1_ne518")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Darkness" parent="." instance=ExtResource("2_b2i20")]
+position = Vector2(-380, -439)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_n2bsd")

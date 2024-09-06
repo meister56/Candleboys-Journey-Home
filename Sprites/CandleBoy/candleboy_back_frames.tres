@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://b73ebhw46ewf"]
+
+[ext_resource type="Texture2D" uid="uid://bik30i01x645t" path="res://Sprites/CandleBoy/Idle/Back/0001.png" id="1_adym0"]
+[ext_resource type="Texture2D" uid="uid://cpqqwbmdsjwgk" path="res://Sprites/CandleBoy/Idle/Back/0002.png" id="2_ayw3o"]
+[ext_resource type="Texture2D" uid="uid://b0e47yc8q501x" path="res://Sprites/CandleBoy/Idle/Back/0003.png" id="3_ocu51"]
+[ext_resource type="Texture2D" uid="uid://cnu5upe1rke6q" path="res://Sprites/CandleBoy/Idle/Back/0004.png" id="4_80uu5"]
+[ext_resource type="Texture2D" uid="uid://dtimqaxmikufr" path="res://Sprites/CandleBoy/Idle/Back/0005.png" id="5_ljna3"]
+[ext_resource type="Texture2D" uid="uid://dywjqjhwc6ss" path="res://Sprites/CandleBoy/Idle/Back/0006.png" id="6_sveak"]
+[ext_resource type="Texture2D" uid="uid://bkttsuxww7hni" path="res://Sprites/CandleBoy/Idle/Back/0007.png" id="7_v2ywb"]
+[ext_resource type="Texture2D" uid="uid://regwmgv3h0u1" path="res://Sprites/CandleBoy/Idle/Back/0008.png" id="8_xkdr4"]
+[ext_resource type="Texture2D" uid="uid://c0ymfenq4l65c" path="res://Sprites/CandleBoy/Idle/Back/0009.png" id="9_tfgil"]
+[ext_resource type="Texture2D" uid="uid://djywnbrdimqpa" path="res://Sprites/CandleBoy/Idle/Back/0010.png" id="10_pac16"]
+[ext_resource type="Texture2D" uid="uid://su10aloxlqi1" path="res://Sprites/CandleBoy/Idle/Back/0011.png" id="11_16rf6"]
+[ext_resource type="Texture2D" uid="uid://1odwldsybgoo" path="res://Sprites/CandleBoy/Idle/Back/0012.png" id="12_pbqyj"]
+[ext_resource type="Texture2D" uid="uid://s78ol85ldkav" path="res://Sprites/CandleBoy/Idle/Back/0013.png" id="13_1fkcy"]
+[ext_resource type="Texture2D" uid="uid://brw1s1lg6ouj1" path="res://Sprites/CandleBoy/Idle/Back/0014.png" id="14_nu36c"]
+[ext_resource type="Texture2D" uid="uid://cm06q1pm6b30m" path="res://Sprites/CandleBoy/Idle/Back/0015.png" id="15_4224s"]
+[ext_resource type="Texture2D" uid="uid://n6by5yf0enf8" path="res://Sprites/CandleBoy/Idle/Back/0016.png" id="16_d1qj7"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_adym0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ayw3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ocu51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_80uu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ljna3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sveak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v2ywb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xkdr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tfgil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pac16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_16rf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pbqyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1fkcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nu36c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4224s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d1qj7")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
