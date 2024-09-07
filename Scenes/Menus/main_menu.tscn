@@ -1,11 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://e55g7hcrn4aa"]
+[gd_scene load_steps=13 format=3 uid="uid://e55g7hcrn4aa"]
 
 [ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_y0o1p"]
+[ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_ee1t5"]
+[ext_resource type="LabelSettings" uid="uid://cdjwd2u5qb4mx" path="res://Themes/LabelSettings/Small.tres" id="3_yu0o0"]
+[ext_resource type="Script" path="res://Scripts/MouseFollow.gd" id="4_r6bdo"]
+[ext_resource type="Texture2D" uid="uid://db4s1h6va4sp1" path="res://Sprites/Flame.png" id="5_uiqvb"]
+[ext_resource type="Texture2D" uid="uid://dj4p6a4atn47o" path="res://Sprites/light_smooth.png" id="6_k7u67"]
+[ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="6_mmqsr"]
+[ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="7_0fi6u"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mu0l"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_bd20f"]
+_data = [Vector2(0.148855, 0.486792), 0.0, 0.0, 0, 0, Vector2(0.278626, 0.532075), 0.0, 0.0, 0, 0, Vector2(0.385496, 0.773585), 0.0, 0.0, 0, 0, Vector2(0.5, 0.833962), 0.0, 0.0, 0, 0, Vector2(0.60687, 0.773585), 0.0, 0.0, 0, 0, Vector2(0.751908, 0.516981), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Gradient" id="Gradient_8hhtg"]
+offsets = PackedFloat32Array(0.0892857, 0.178571, 0.901786, 1)
+colors = PackedColorArray(1, 0.501961, 0, 0, 1, 0.556863, 0, 1, 1, 0.211765, 0, 1, 1, 0.211765, 0, 0.470588)
+
+[sub_resource type="Gradient" id="Gradient_4b18k"]
+offsets = PackedFloat32Array(0, 0.454023, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.751786, 0.533686, 1, 0, 0, 0, 1)
 
 [node name="MainMenu" type="CanvasLayer"]
-layer = 10
+layer = 0
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -16,4 +38,94 @@ grow_horizontal = 2
 theme = ExtResource("1_y0o1p")
 text = "Title
 "
+label_settings = ExtResource("2_ee1t5")
 horizontal_alignment = 1
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_right = 127.0
+grow_vertical = 0
+theme = ExtResource("1_y0o1p")
+text = "Version 1.0.0, PPjam"
+label_settings = ExtResource("3_yu0o0")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="MouseFollow" type="Node2D" parent="."]
+script = ExtResource("4_r6bdo")
+
+[node name="MouseFlame" type="CPUParticles2D" parent="MouseFollow"]
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_3mu0l")
+position = Vector2(0, -0.374332)
+amount = 10
+local_coords = true
+texture = ExtResource("5_uiqvb")
+emission_shape = 4
+emission_points = PackedVector2Array(0, -1)
+emission_colors = PackedColorArray(0.992546, 0.604748, 0.623433, 1)
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_bd20f")
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_8hhtg")
+
+[node name="DynamicLight" type="PointLight2D" parent="MouseFollow/MouseFlame"]
+scale = Vector2(0.59375, 0.59375)
+energy = 3.0
+texture = ExtResource("6_k7u67")
+script = ExtResource("7_0fi6u")
+gradient = SubResource("Gradient_4b18k")
+
+[node name="NonLocal" type="CPUParticles2D" parent="MouseFollow/MouseFlame"]
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_3mu0l")
+position = Vector2(0, -0.166695)
+scale = Vector2(0.445313, 0.445313)
+amount = 10
+texture = ExtResource("5_uiqvb")
+emission_shape = 4
+emission_points = PackedVector2Array(0, -1)
+emission_colors = PackedColorArray(0.992546, 0.604748, 0.623433, 1)
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_bd20f")
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_8hhtg")
+
+[node name="Darkness" parent="." instance=ExtResource("6_mmqsr")]
