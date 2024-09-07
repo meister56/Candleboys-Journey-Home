@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be2ym0vlokjjg"
-path="res://.godot/imported/0005.png-199b79e4c782f6890f9604a120534201.ctex"
+uid="uid://c08tqqufgw5tb"
+path="res://.godot/imported/0005.png-e9882ad8d8fdd18052c36b5ed2d3f4c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/CandleBoy/0005.png"
-dest_files=["res://.godot/imported/0005.png-199b79e4c782f6890f9604a120534201.ctex"]
+source_file="res://Sprites/CandleBoy/Interact/Back/0005.png"
+dest_files=["res://.godot/imported/0005.png-e9882ad8d8fdd18052c36b5ed2d3f4c9.ctex"]
 
 [params]
 

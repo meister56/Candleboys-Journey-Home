@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 var flame_color: Color   
 @export var is_lit: bool = true
 
@@ -9,7 +9,7 @@ var is_interacting: bool = false
 
 var current_state: State = State.IDLE # Default to IDLE STATE
 @export var interact_range:float = 50
-
+@export var interaction_delay:float = 1.5
 #FOOTSTEP LOGIC
 @export var footstep_rate:float = 0.4
 @onready var footstep_player:AudioStreamPlayer2D = $FootSteps
@@ -23,21 +23,23 @@ enum State {
 	INTERACT
 }
 
-	
+var interaction_time:float
+
 func get_input():
 	input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = (input_direction * speed)
 	
 
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("interact"):
+		current_state = State.INTERACT
 		for candle in get_tree().get_nodes_in_group("Candle"):
 			
 			if candle.global_position.distance_to(global_position) <= interact_range:
 				candle.light_candle()
 			
-	
-	if input_direction != Vector2.ZERO:
+	elif input_direction != Vector2.ZERO:
 		current_state = State.WALK
 		play_footstep_sounds()
 	else:
@@ -45,14 +47,14 @@ func _physics_process(delta: float) -> void:
 		# Check if the 'E' key is pressed and a candle is nearby
 
 	
+	
 	get_input()
 	
 	move_and_slide()
 	
-	# Handle animation 
 	match current_state:
 		State.INTERACT:
-			#Play Ineraction animations
+			
 			pass
 	match current_state:
 		State.IDLE:

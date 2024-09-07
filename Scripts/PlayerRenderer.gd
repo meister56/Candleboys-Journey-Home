@@ -1,7 +1,7 @@
 extends Node2D
 class_name PlayerRenderer
 
-@onready var player:CharacterBody2D
+@onready var player:Player
 
 var current_orientation:int = 0
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 	player = get_parent()
 
 func _physics_process(delta: float) -> void:
-	
+	get_player_orientation()
 	
 	for orientation_idx in range(orientations.size()):
 		if orientation_idx != current_orientation:
@@ -25,8 +25,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			orientations[orientation_idx].visible = true
 		
-	get_player_orientation()
 	
+	
+	if player.current_state == player.State.INTERACT:
+		orientations[current_orientation].play("interact")
+	elif player.current_state == player.State.IDLE && orientations[current_orientation].is_playing() == false:
+		orientations[current_orientation].play("still")
 
 func get_player_orientation():
 	

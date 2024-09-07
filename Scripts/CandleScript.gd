@@ -1,6 +1,7 @@
 extends Node2D
 
 # Variable to track if the candle is lit
+@export var color:Color = Color.ORANGE
 var is_lit = false
 
 func _ready():
@@ -10,6 +11,7 @@ func _ready():
 	 
 # Function to light the candle
 func light_candle():
+	$Flames.modulate =color
 	if not is_lit:
 		is_lit = true
 		$Flames.emitting = true 
