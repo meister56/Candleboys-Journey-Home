@@ -80,10 +80,6 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		die()
 	
 
-func _on_bad_guy_death_zone_body_entered(body: Node2D) -> void:
-	if body.name == self.name:
-		die()
-
 func die():
 		current_state = State.FALL
 		await get_tree().create_timer(4).timeout

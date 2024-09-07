@@ -78,10 +78,10 @@ candles_lit_required = [NodePath("../CandleBase3"), NodePath("../CandleBase2")]
 [node name="BadGuy" parent="." instance=ExtResource("8_ecqca")]
 position = Vector2(328, 79)
 
-[node name="BadGuyDeathZone" type="Area2D" parent="BadGuy"]
+[node name="BadGuyDeathZone2" type="Area2D" parent="BadGuy"]
 position = Vector2(0, 45)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BadGuy/BadGuyDeathZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadGuy/BadGuyDeathZone2"]
 shape = SubResource("CapsuleShape2D_2wobj")
 
 [node name="PlayInRange" type="AudioStreamPlayer2D" parent="."]
@@ -97,5 +97,5 @@ scale = Vector2(2.08, 2.08)
 position = Vector2(-0.240387, 13.7019)
 shape = SubResource("RectangleShape2D_smyka")
 
-[connection signal="body_entered" from="BadGuy/BadGuyDeathZone" to="CandleBoy" method="_on_bad_guy_death_zone_body_entered"]
+[connection signal="body_entered" from="BadGuy/BadGuyDeathZone2" to="CandleBoy" method="_on_bad_guy_death_zone_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]

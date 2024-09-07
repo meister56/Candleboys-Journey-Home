@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ci2hv70prl2qp"]
+[gd_scene load_steps=14 format=4 uid="uid://ci2hv70prl2qp"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_m0yp7"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_b8np8"]
@@ -26,10 +26,6 @@ texture_region_size = Vector2i(64, 40)
 tile_size = Vector2i(64, 40)
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_2luni")
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2wobj"]
-radius = 42.0
-height = 148.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smyka"]
 size = Vector2(216.827, 56.25)
@@ -97,12 +93,6 @@ is_lit = true
 [node name="BadGuy" parent="." instance=ExtResource("8_rwjsg")]
 position = Vector2(328, 79)
 
-[node name="BadGuyDeathZone" type="Area2D" parent="BadGuy"]
-position = Vector2(0, 45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BadGuy/BadGuyDeathZone"]
-shape = SubResource("CapsuleShape2D_2wobj")
-
 [node name="PlayInRange" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(333, 9)
 stream = ExtResource("9_ul73t")
@@ -116,5 +106,4 @@ scale = Vector2(2.08, 2.08)
 position = Vector2(-0.240387, 13.7019)
 shape = SubResource("RectangleShape2D_smyka")
 
-[connection signal="body_entered" from="BadGuy/BadGuyDeathZone" to="CandleBoy" method="_on_bad_guy_death_zone_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]
