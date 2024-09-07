@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_vu1hg"]
 [ext_resource type="PackedScene" uid="uid://ba6elvfrf28op" path="res://Scenes/FloorTileMap.tscn" id="4_as4hu"]
 [ext_resource type="PackedScene" uid="uid://b0g2qeb331kd6" path="res://Scenes/WallTileMap.scn" id="5_dcsp3"]
-[ext_resource type="PackedScene" uid="uid://c01j7mfsnmt51" path="res://Scenes/Brazier.scn" id="5_yatnu"]
 [ext_resource type="PackedScene" uid="uid://ccudpgfhbbxea" path="res://Scenes/CandleBase.tscn" id="7_n3j50"]
+[ext_resource type="PackedScene" uid="uid://pdcu5qwmg833" path="res://Scenes/Door.tscn" id="8_lx30o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smyka"]
 size = Vector2(239.13, 75)
@@ -27,11 +27,17 @@ position = Vector2(-380, -439)
 [node name="Walls" parent="." instance=ExtResource("5_dcsp3")]
 tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAA=")
 
-[node name="Brazier" parent="." instance=ExtResource("5_yatnu")]
-position = Vector2(538, 118)
-
 [node name="CandleBase" parent="." instance=ExtResource("7_n3j50")]
 position = Vector2(56, 387)
+
+[node name="CandleBase4" parent="." instance=ExtResource("7_n3j50")]
+position = Vector2(-320, 404)
+
+[node name="CandleBase2" parent="." instance=ExtResource("7_n3j50")]
+position = Vector2(979, -12)
+
+[node name="CandleBase3" parent="." instance=ExtResource("7_n3j50")]
+position = Vector2(715, -11)
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(535, 552)
@@ -39,5 +45,9 @@ scale = Vector2(2.08, 2.08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 shape = SubResource("RectangleShape2D_smyka")
+
+[node name="Door" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("8_lx30o")]
+position = Vector2(827, -50)
+candles_lit_required = [NodePath("../CandleBase3"), NodePath("../CandleBase2")]
 
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]

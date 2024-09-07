@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxshniya3kfv"
-path="res://.godot/imported/door_brazier.png-72198a123530d23e3a6eae5ae071b5a1.ctex"
+uid="uid://do0i4wib2a4qd"
+path="res://.godot/imported/0001.png-e01b2e7100c4ab01cad92329027b3531.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/door_brazier.png"
-dest_files=["res://.godot/imported/door_brazier.png-72198a123530d23e3a6eae5ae071b5a1.ctex"]
+source_file="res://Sprites/Door/0001.png"
+dest_files=["res://.godot/imported/0001.png-e01b2e7100c4ab01cad92329027b3531.ctex"]
 
 [params]
 

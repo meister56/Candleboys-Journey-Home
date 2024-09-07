@@ -71,6 +71,11 @@ layout_mode = 2
 text = "Start
 "
 
+[node name="Guide" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Guide
+"
+
 [node name="Settings" type="Button" parent="Buttons"]
 layout_mode = 2
 text = "Settings

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccudpgfhbbxea"]
 
-[ext_resource type="Texture2D" uid="uid://bxshniya3kfv" path="res://Sprites/door_brazier.png" id="1_q3htl"]
+[ext_resource type="Texture2D" uid="uid://bxshniya3kfv" path="res://Sprites/brazier.png" id="1_q3htl"]
 [ext_resource type="Script" path="res://Scripts/Candle.gd" id="2_fpgmb"]
 [ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flame.scn" id="3_bp1u2"]
 

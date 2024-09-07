@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://chy3gsilkbgg8"]
+
+[ext_resource type="AudioStream" uid="uid://bqy2py77p4gyf" path="res://Sounds/DoorSqueak/door_squeak1.wav" id="1_xx08b"]
+[ext_resource type="AudioStream" uid="uid://b5vocr8ln8a2o" path="res://Sounds/DoorSqueak/door_squeak2.wav" id="2_0g8ro"]
+[ext_resource type="AudioStream" uid="uid://ecng72km10wu" path="res://Sounds/DoorSqueak/door_squeak3.wav" id="3_ecrau"]
+[ext_resource type="AudioStream" uid="uid://kkcka21oqady" path="res://Sounds/DoorSqueak/door_squeak4.wav" id="4_msnnw"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_xx08b")
+stream_1/stream = ExtResource("2_0g8ro")
+stream_2/stream = ExtResource("3_ecrau")
+stream_3/stream = ExtResource("4_msnnw")

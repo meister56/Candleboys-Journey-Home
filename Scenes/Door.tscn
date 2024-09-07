@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://pdcu5qwmg833"]
+
+[ext_resource type="SpriteFrames" uid="uid://blm6vsk5gfbrb" path="res://Sprites/Door/door_anims.tres" id="1_vpovd"]
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="1_ysq20"]
+[ext_resource type="AudioStream" uid="uid://45ywxa0ilk50" path="res://Sounds/DoorUnlock/door_unlock.tres" id="3_7n6su"]
+[ext_resource type="AudioStream" uid="uid://chy3gsilkbgg8" path="res://Sounds/DoorSqueak/door_squeak.tres" id="4_my1f0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kvyc"]
+size = Vector2(131, 24)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_ysq20")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -125)
+sprite_frames = ExtResource("1_vpovd")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20.5, -12)
+shape = SubResource("RectangleShape2D_4kvyc")
+
+[node name="Unlock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7n6su")
+
+[node name="Squeak" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_my1f0")
+
+[connection signal="just_opened" from="." to="Unlock" method="play"]
+[connection signal="just_opened" from="." to="Squeak" method="play"]

@@ -8,7 +8,7 @@ const speed = 300.0
 var is_interacting: bool = false
 
 var current_state: State = State.IDLE # Default to IDLE STATE
-@export var interact_range:float = 50
+@export var interact_range:float = 100
 @export var interaction_delay:float = 1.5
 #FOOTSTEP LOGIC
 @export var footstep_rate:float = 0.4
