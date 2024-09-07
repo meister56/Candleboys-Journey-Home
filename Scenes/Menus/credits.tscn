@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://yhvksetfmgik"]
+[gd_scene load_steps=51 format=3 uid="uid://yhvksetfmgik"]
 
 [ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_slo7o"]
 [ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_xbc6i"]
@@ -43,6 +43,8 @@
 [ext_resource type="Texture2D" uid="uid://rquhqp300dty" path="res://Sprites/CandleBoy/DanceCredits/0030.png" id="39_yfktb"]
 [ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flames/Flame.scn" id="40_5md3b"]
 [ext_resource type="Texture2D" uid="uid://63eejebqspik" path="res://Sprites/light_spot.png" id="42_fvayw"]
+[ext_resource type="Script" path="res://Scripts/Esc.gd" id="44_ttvpa"]
+[ext_resource type="Script" path="res://Scripts/SceneChanger.gd" id="45_ij2wh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mu0l"]
 blend_mode = 1
@@ -160,31 +162,16 @@ animations = [{
 [node name="Credits" type="CanvasLayer"]
 layer = 0
 
-[node name="Title" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme = ExtResource("1_slo7o")
-text = "Candleboy's
-Journey Home
-"
-label_settings = ExtResource("2_xbc6i")
-horizontal_alignment = 1
-
 [node name="Credits" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = 576.0
-offset_right = 120.0
-offset_bottom = 2207.0
+offset_left = -195.0
+offset_top = 898.0
+offset_right = 159.0
+offset_bottom = 3174.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_slo7o")
@@ -271,6 +258,23 @@ position = Vector2(176, 2368.5)
 [node name="Flames15" parent="Credits" instance=ExtResource("40_5md3b")]
 position = Vector2(259, 2320.5)
 
+[node name="Title" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -440.0
+offset_top = -337.5
+offset_right = 476.0
+offset_bottom = 85.5
+grow_horizontal = 2
+theme = ExtResource("1_slo7o")
+text = "Candleboy's
+Journey Home
+"
+label_settings = ExtResource("2_xbc6i")
+horizontal_alignment = 1
+
 [node name="MouseFollow" type="Node2D" parent="."]
 script = ExtResource("5_3p4h8")
 
@@ -333,7 +337,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.505344, 0.505344, 0.505344, 1)
+color = Color(0.129558, 0.129558, 0.129558, 1)
 
 [node name="CreditsTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ebdc6")
@@ -363,4 +367,11 @@ position = Vector2(1140, 922)
 [node name="Start" type="Node2D" parent="."]
 position = Vector2(108, 913)
 
+[node name="GotoMenuOnEsc" type="Node" parent="."]
+script = ExtResource("44_ttvpa")
+
+[node name="MenuChanger" type="Node" parent="GotoMenuOnEsc"]
+script = ExtResource("45_ij2wh")
+
 [connection signal="ready" from="CreditsTheme" to="CreditsTheme" method="play"]
+[connection signal="escaped" from="GotoMenuOnEsc" to="GotoMenuOnEsc/MenuChanger" method="change_scene" binds= ["res://Scenes/Menus/main_menu.tscn"]]
