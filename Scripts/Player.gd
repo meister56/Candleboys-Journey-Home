@@ -36,7 +36,7 @@ func get_input():
 
 func _physics_process(delta: float) -> void:
 	get_input()
-	var is_alive:bool = current_state != State.FALL && current_state != State.DEAD
+	var is_alive:bool = current_state != State.FALL 
 	
 	if Input.is_action_just_pressed("put_out"):
 		light_toggle(false)
@@ -76,8 +76,16 @@ func play_footstep_sounds():
 
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
+	if body.name  == self.name:
+		die()
 	
-	current_state = State.FALL
-	await get_tree().create_timer(5).timeout
-	get_tree().reload_current_scene()  # Reload Scene if Entered
-	
+
+func _on_bad_guy_death_zone_body_entered(body: Node2D) -> void:
+	if body.name == self.name:
+		die()
+
+func die():
+		current_state = State.FALL
+		await get_tree().create_timer(4).timeout
+		get_tree().reload_current_scene()  # Reload Scene if Entered
+		pass # Replace with function body.
