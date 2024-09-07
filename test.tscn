@@ -14,10 +14,6 @@ size = Vector2(239.13, 75)
 [node name="Node2D" type="Node2D"]
 
 [node name="CandleBoy" parent="." instance=ExtResource("1_ne518")]
-is_lit = true
-interact_range = 50.0
-interaction_delay = 1.5
-footstep_rate = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_vu1hg")

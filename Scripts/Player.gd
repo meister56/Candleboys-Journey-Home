@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 				
 				if candle.is_lit:
 					light_toggle(true)
-				else:
+				elif is_lit == true:
 					candle.light_candle()
 				
 	elif input_direction != Vector2.ZERO:
