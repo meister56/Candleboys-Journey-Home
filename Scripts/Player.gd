@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var flame_color: Color   
+@export var is_lit: bool = true
+
 
 const speed = 300.0
 var is_interacting: bool = false
@@ -29,9 +32,10 @@ func get_input():
 func _physics_process(delta: float) -> void:
 	if input_direction != Vector2.ZERO:
 		current_state = State.WALK
+		play_footstep_sounds()
 	else:
 		current_state = State.IDLE
-	play_footstep_sounds()
+	
 	
 	get_input()
 	
