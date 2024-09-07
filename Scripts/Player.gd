@@ -22,6 +22,7 @@ enum State {
 	IDLE,
 	WALK,
 	INTERACT,
+	FALL,
 	DEAD
 }
 
@@ -34,9 +35,13 @@ func get_input():
 	
 
 func _physics_process(delta: float) -> void:
+	get_input()
+	var is_alive:bool = current_state != State.FALL && current_state != State.DEAD
+	
+	print(is_alive)
 	if Input.is_action_just_pressed("put_out"):
 		light_toggle(false)
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && is_alive:
 		current_state = State.INTERACT
 		for candle in get_tree().get_nodes_in_group("Candle"):
 			
@@ -45,30 +50,16 @@ func _physics_process(delta: float) -> void:
 				if candle.is_lit:
 					color_type = candle.color_type
 					light_toggle(true)
-				elif is_lit == true:
+				elif is_lit == true && candle.color_type == color_type:
 					candle.light_candle()
 				
-	elif input_direction != Vector2.ZERO:
+	elif input_direction != Vector2.ZERO && is_alive:
+		move_and_slide()
 		current_state = State.WALK
 		play_footstep_sounds()
-	else:
+	elif is_alive:
 		current_state = State.IDLE
 		# Check if the 'E' key is pressed and a candle is nearby
-
-	get_input()
-	
-	move_and_slide()
-	
-	match current_state:
-		
-		State.INTERACT:
-			pass
-			
-		State.IDLE:
-			pass
-		State.DEAD:
-			pass
-
 
 
 func light_toggle(value:bool):
@@ -87,7 +78,7 @@ func play_footstep_sounds():
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	
-	current_state = State.DEAD
-	print("Entered") # Put death stuff here dont ask why
+	current_state = State.FALL
+	await get_tree().create_timer(5).timeout
 	get_tree().reload_current_scene()  # Reload Scene if Entered
 	

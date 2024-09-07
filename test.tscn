@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pdcu5qwmg833" path="res://Scenes/Door.tscn" id="8_lx30o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smyka"]
-size = Vector2(239.13, 75)
+size = Vector2(132.692, 44.2308)
 
 [node name="Node2D" type="Node2D"]
 

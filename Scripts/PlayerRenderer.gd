@@ -26,12 +26,16 @@ func _physics_process(delta: float) -> void:
 			orientations[orientation_idx].visible = true
 		
 	
-	
+	print(player.current_state)
 	if player.current_state == player.State.INTERACT:
 		orientations[current_orientation].play("interact")
 	elif player.current_state == player.State.IDLE && orientations[current_orientation].is_playing() == false:
 		orientations[current_orientation].play("still")
-
+	if player.current_state == player.State.FALL:
+		orientations[current_orientation].play("fall")
+		player.scale -= Vector2.ONE * 0.005
+		player.scale= clamp(player.scale,Vector2.ZERO,Vector2.ONE)
+		
 func get_player_orientation():
 	
 	if player.velocity.x != 0:
