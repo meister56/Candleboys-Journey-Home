@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1y3obbpe25pm"]
+[gd_scene load_steps=7 format=4 uid="uid://1y3obbpe25pm"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_ne518"]
 [ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="2_b2i20"]
@@ -16,13 +16,12 @@ script = ExtResource("2_vu1hg")
 target = NodePath("../CandleBoy")
 
 [node name="Darkness" parent="." instance=ExtResource("2_b2i20")]
-visible = false
 position = Vector2(-380, -439)
 
 [node name="Floor" parent="." instance=ExtResource("4_as4hu")]
 
 [node name="Walls" parent="." instance=ExtResource("5_dcsp3")]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAA=")
 
 [node name="Brazier" parent="." instance=ExtResource("5_yatnu")]
 position = Vector2(538, 118)

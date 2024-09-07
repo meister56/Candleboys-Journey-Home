@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			orientations[orientation_idx].visible = true
 		
 	get_player_orientation()
-	print(current_orientation)
+	
 
 func get_player_orientation():
 	
