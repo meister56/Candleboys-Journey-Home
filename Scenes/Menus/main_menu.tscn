@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://e55g7hcrn4aa"]
+[gd_scene load_steps=2 format=3 uid="uid://e55g7hcrn4aa"]
+
+[ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_y0o1p"]
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 10
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_y0o1p")
+text = "Title
+"
+horizontal_alignment = 1

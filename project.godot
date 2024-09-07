@@ -21,6 +21,11 @@ window/size/viewport_width=1280
 window/size/viewport_height=1152
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://Themes/default.theme"
+theme/custom_font="res://Themes/EB_Garamond,Playfair_Display/EB_Garamond/EBGaramond-VariableFont_wght.ttf"
+
 [input]
 
 up={
