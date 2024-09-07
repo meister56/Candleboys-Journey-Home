@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccudpgfhbbxea"]
+[gd_scene load_steps=5 format=3 uid="uid://ccudpgfhbbxea"]
 
 [ext_resource type="Texture2D" uid="uid://bxshniya3kfv" path="res://Sprites/brazier.png" id="1_q3htl"]
 [ext_resource type="Script" path="res://Scripts/Candle.gd" id="2_fpgmb"]
-[ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flame.scn" id="3_bp1u2"]
+[ext_resource type="PackedScene" uid="uid://b3aovnr7nva4c" path="res://Scenes/Flames/FlameRenderer.tscn" id="3_fumtj"]
+[ext_resource type="PackedScene" uid="uid://dln4piywgl22j" path="res://Scenes/Flames/GemRenderer.scn" id="4_lqfeu"]
 
 [node name="CandleBase" type="Sprite2D"]
 texture = ExtResource("1_q3htl")
 script = ExtResource("2_fpgmb")
 
-[node name="Flames" parent="." instance=ExtResource("3_bp1u2")]
-position = Vector2(-3, -90)
+[node name="FlameRenderer" parent="." instance=ExtResource("3_fumtj")]
+position = Vector2(7, -87)
+
+[node name="GemRenderer" parent="." instance=ExtResource("4_lqfeu")]

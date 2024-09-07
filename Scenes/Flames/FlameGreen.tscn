@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmy5cjxv0d5t4"]
+
+[ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flames/Flame.scn" id="1_52ste"]
+
+[sub_resource type="Gradient" id="Gradient_iuyyw"]
+offsets = PackedFloat32Array(0, 0.58, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.14349, 1, 0.127228, 1, 0, 0, 0, 1)
+
+[node name="Flames" instance=ExtResource("1_52ste")]
+color_ramp = SubResource("Gradient_iuyyw")
+
+[node name="DynamicLight" parent="." index="0"]
+gradient = SubResource("Gradient_iuyyw")
+
+[node name="NonLocal" parent="." index="1"]
+color_ramp = SubResource("Gradient_iuyyw")

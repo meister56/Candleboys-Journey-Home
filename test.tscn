@@ -35,9 +35,12 @@ position = Vector2(-320, 404)
 
 [node name="CandleBase2" parent="." instance=ExtResource("7_n3j50")]
 position = Vector2(979, -12)
+color_type = "BLUE"
 
 [node name="CandleBase3" parent="." instance=ExtResource("7_n3j50")]
 position = Vector2(715, -11)
+color_type = "BLUE"
+is_lit = true
 
 [node name="DeathZone" type="Area2D" parent="."]
 position = Vector2(535, 552)

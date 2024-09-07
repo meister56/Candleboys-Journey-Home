@@ -1,12 +1,13 @@
 extends CharacterBody2D
 class_name Player
-var flame_color: Color   
+  
 @export var is_lit: bool = true
 
 
 const speed = 300.0
 var is_interacting: bool = false
 
+var color_type = "RED"
 var current_state: State = State.IDLE # Default to IDLE STATE
 @export var interact_range:float = 100
 @export var interaction_delay:float = 1.5
@@ -23,6 +24,7 @@ enum State {
 	INTERACT,
 	DEAD
 }
+
 
 var interaction_time:float
 
@@ -41,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			if candle.global_position.distance_to(global_position) <= interact_range:
 				
 				if candle.is_lit:
+					color_type = candle.color_type
 					light_toggle(true)
 				elif is_lit == true:
 					candle.light_candle()
@@ -70,7 +73,6 @@ func _physics_process(delta: float) -> void:
 
 func light_toggle(value:bool):
 	is_lit = value
-	$Flames.visible = value
 	if value == false:
 		put_out_sound.play()
 
