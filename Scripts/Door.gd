@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	check_all_candles_lit()
 
 func check_all_candles_lit():
+	
 	for candle in candles_lit_required:
 		if not candle.is_lit:
 			return  # Exit the function if any candle is not lit
