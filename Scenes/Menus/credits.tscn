@@ -1,0 +1,312 @@
+[gd_scene load_steps=51 format=3 uid="uid://yhvksetfmgik"]
+
+[ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_slo7o"]
+[ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_xbc6i"]
+[ext_resource type="LabelSettings" uid="uid://cdjwd2u5qb4mx" path="res://Themes/LabelSettings/Small.tres" id="3_62uko"]
+[ext_resource type="Script" path="res://Scripts/MouseFollow.gd" id="5_3p4h8"]
+[ext_resource type="Texture2D" uid="uid://db4s1h6va4sp1" path="res://Sprites/Flame.png" id="6_2mqdu"]
+[ext_resource type="Texture2D" uid="uid://dj4p6a4atn47o" path="res://Sprites/light_smooth.png" id="7_m3q6y"]
+[ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="8_p843w"]
+[ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="9_bodvq"]
+[ext_resource type="Texture2D" uid="uid://coxgjo5e3nbdh" path="res://Sprites/CandleBoy/DanceCredits/0001.png" id="10_7gw4v"]
+[ext_resource type="AudioStream" uid="uid://bcue11mksy6ei" path="res://Sounds/Music/Credits.wav" id="10_ebdc6"]
+[ext_resource type="Script" path="res://Scripts/BouncyCandleBoy.gd" id="10_hbemf"]
+[ext_resource type="Texture2D" uid="uid://cun1ffufmwkou" path="res://Sprites/CandleBoy/DanceCredits/0002.png" id="11_p2rsn"]
+[ext_resource type="Texture2D" uid="uid://c44jyo7tm3rgf" path="res://Sprites/CandleBoy/DanceCredits/0003.png" id="12_pebdl"]
+[ext_resource type="Texture2D" uid="uid://c7wcf7hib0pwh" path="res://Sprites/CandleBoy/DanceCredits/0004.png" id="13_hncp0"]
+[ext_resource type="Texture2D" uid="uid://dlpuknquerlxp" path="res://Sprites/CandleBoy/DanceCredits/0005.png" id="14_u0qtd"]
+[ext_resource type="Texture2D" uid="uid://buy5ctm1fjphm" path="res://Sprites/CandleBoy/DanceCredits/0006.png" id="15_w820w"]
+[ext_resource type="Texture2D" uid="uid://d4axqp7i32hmi" path="res://Sprites/CandleBoy/DanceCredits/0007.png" id="16_wty8i"]
+[ext_resource type="Texture2D" uid="uid://dpwd4bwl1am3f" path="res://Sprites/CandleBoy/DanceCredits/0008.png" id="17_jlvcp"]
+[ext_resource type="Texture2D" uid="uid://uphdktf7dk08" path="res://Sprites/CandleBoy/DanceCredits/0009.png" id="18_5vak4"]
+[ext_resource type="Texture2D" uid="uid://d27vpsmnhywpv" path="res://Sprites/CandleBoy/DanceCredits/0010.png" id="19_pwhg8"]
+[ext_resource type="Texture2D" uid="uid://bfu6o2basy706" path="res://Sprites/CandleBoy/DanceCredits/0011.png" id="20_owkqd"]
+[ext_resource type="Texture2D" uid="uid://bcc6xxwcpq7lf" path="res://Sprites/CandleBoy/DanceCredits/0012.png" id="21_swvgg"]
+[ext_resource type="Texture2D" uid="uid://3ytxy6f232nv" path="res://Sprites/CandleBoy/DanceCredits/0013.png" id="22_u4mlj"]
+[ext_resource type="Texture2D" uid="uid://qfehi6nail2q" path="res://Sprites/CandleBoy/DanceCredits/0014.png" id="23_jay75"]
+[ext_resource type="Texture2D" uid="uid://bf2qh1x7p82v3" path="res://Sprites/CandleBoy/DanceCredits/0015.png" id="24_rvdn2"]
+[ext_resource type="Texture2D" uid="uid://bf0aout8l0hhd" path="res://Sprites/CandleBoy/DanceCredits/0016.png" id="25_rvbmp"]
+[ext_resource type="Texture2D" uid="uid://c30nbl1pf7k8c" path="res://Sprites/CandleBoy/DanceCredits/0017.png" id="26_k33se"]
+[ext_resource type="Texture2D" uid="uid://dj10ngc5x0q1j" path="res://Sprites/CandleBoy/DanceCredits/0018.png" id="27_o6vqi"]
+[ext_resource type="Texture2D" uid="uid://b84dq2rhwt8hi" path="res://Sprites/CandleBoy/DanceCredits/0019.png" id="28_tpq0g"]
+[ext_resource type="Texture2D" uid="uid://bgeaqq506v288" path="res://Sprites/CandleBoy/DanceCredits/0020.png" id="29_0mp06"]
+[ext_resource type="Texture2D" uid="uid://s8rat8wj7ueq" path="res://Sprites/CandleBoy/DanceCredits/0021.png" id="30_7hiwm"]
+[ext_resource type="Texture2D" uid="uid://c8lt4ejhe7vmc" path="res://Sprites/CandleBoy/DanceCredits/0022.png" id="31_gilgo"]
+[ext_resource type="Texture2D" uid="uid://bpt5av1olrpvs" path="res://Sprites/CandleBoy/DanceCredits/0023.png" id="32_4yqwn"]
+[ext_resource type="Texture2D" uid="uid://cwuk3gkofw161" path="res://Sprites/CandleBoy/DanceCredits/0024.png" id="33_7lmhx"]
+[ext_resource type="Texture2D" uid="uid://o08frh5jeikv" path="res://Sprites/CandleBoy/DanceCredits/0025.png" id="34_8g3kc"]
+[ext_resource type="Texture2D" uid="uid://dmo60imk1u2dh" path="res://Sprites/CandleBoy/DanceCredits/0026.png" id="35_jyq5b"]
+[ext_resource type="Texture2D" uid="uid://coydto4yn8ou4" path="res://Sprites/CandleBoy/DanceCredits/0027.png" id="36_cd82w"]
+[ext_resource type="Texture2D" uid="uid://cwvyth3odtkny" path="res://Sprites/CandleBoy/DanceCredits/0028.png" id="37_iasvp"]
+[ext_resource type="Texture2D" uid="uid://c6uohfmmdu6yy" path="res://Sprites/CandleBoy/DanceCredits/0029.png" id="38_fxto6"]
+[ext_resource type="Texture2D" uid="uid://rquhqp300dty" path="res://Sprites/CandleBoy/DanceCredits/0030.png" id="39_yfktb"]
+[ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flames/Flame.scn" id="40_5md3b"]
+[ext_resource type="Texture2D" uid="uid://63eejebqspik" path="res://Sprites/light_spot.png" id="42_fvayw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mu0l"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_bd20f"]
+_data = [Vector2(0.148855, 0.486792), 0.0, 0.0, 0, 0, Vector2(0.278626, 0.532075), 0.0, 0.0, 0, 0, Vector2(0.385496, 0.773585), 0.0, 0.0, 0, 0, Vector2(0.5, 0.833962), 0.0, 0.0, 0, 0, Vector2(0.60687, 0.773585), 0.0, 0.0, 0, 0, Vector2(0.751908, 0.516981), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Gradient" id="Gradient_8hhtg"]
+offsets = PackedFloat32Array(0.0892857, 0.178571, 0.901786, 1)
+colors = PackedColorArray(1, 0.501961, 0, 0, 1, 0.556863, 0, 1, 1, 0.211765, 0, 1, 1, 0.211765, 0, 0.470588)
+
+[sub_resource type="Gradient" id="Gradient_4b18k"]
+offsets = PackedFloat32Array(0, 0.454023, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.751786, 0.533686, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2eco"]
+size = Vector2(1145.5, 126)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_81e28"]
+bounce = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5qwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7gw4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p2rsn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pebdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hncp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_u0qtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w820w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wty8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jlvcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5vak4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_pwhg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_owkqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_swvgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u4mlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jay75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rvdn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rvbmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_k33se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_o6vqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_tpq0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0mp06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_7hiwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gilgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4yqwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_7lmhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_8g3kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_jyq5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_cd82w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_iasvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_fxto6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_yfktb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3o6o"]
+radius = 29.0
+height = 148.0
+
+[node name="Credits" type="CanvasLayer"]
+layer = 0
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_slo7o")
+text = "Candleboy's
+Journey Home
+"
+label_settings = ExtResource("2_xbc6i")
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -63.0
+offset_right = 116.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_slo7o")
+text = "Thanks to:
+
+Kota56 & Twonklez"
+label_settings = ExtResource("3_62uko")
+horizontal_alignment = 1
+
+[node name="MouseFollow" type="Node2D" parent="."]
+script = ExtResource("5_3p4h8")
+
+[node name="MouseFlame" type="CPUParticles2D" parent="MouseFollow"]
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_3mu0l")
+position = Vector2(0, -0.374332)
+amount = 10
+local_coords = true
+texture = ExtResource("6_2mqdu")
+emission_shape = 4
+emission_points = PackedVector2Array(0, -1)
+emission_colors = PackedColorArray(0.992546, 0.604748, 0.623433, 1)
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_bd20f")
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_8hhtg")
+
+[node name="DynamicLight" type="PointLight2D" parent="MouseFollow/MouseFlame"]
+scale = Vector2(0.59375, 0.59375)
+energy = 3.0
+texture = ExtResource("7_m3q6y")
+script = ExtResource("8_p843w")
+gradient = SubResource("Gradient_4b18k")
+
+[node name="NonLocal" type="CPUParticles2D" parent="MouseFollow/MouseFlame"]
+texture_filter = 2
+texture_repeat = 3
+material = SubResource("CanvasItemMaterial_3mu0l")
+position = Vector2(0, -0.166695)
+scale = Vector2(0.445313, 0.445313)
+amount = 10
+texture = ExtResource("6_2mqdu")
+emission_shape = 4
+emission_points = PackedVector2Array(0, -1)
+emission_colors = PackedColorArray(0.992546, 0.604748, 0.623433, 1)
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_bd20f")
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_8hhtg")
+
+[node name="Darkness" parent="." instance=ExtResource("9_bodvq")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="CreditsTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ebdc6")
+autoplay = true
+
+[node name="Room" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
+position = Vector2(636.5, 1092)
+shape = SubResource("RectangleShape2D_n2eco")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
+position = Vector2(57, 572.75)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_n2eco")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
+position = Vector2(1212, 579)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_n2eco")
+
+[node name="BouncyCandleBoy" type="RigidBody2D" parent="."]
+position = Vector2(241, 912)
+physics_material_override = SubResource("PhysicsMaterial_81e28")
+gravity_scale = 0.1
+script = ExtResource("10_hbemf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BouncyCandleBoy"]
+sprite_frames = SubResource("SpriteFrames_f5qwt")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyCandleBoy"]
+position = Vector2(-1, 33)
+shape = SubResource("CapsuleShape2D_w3o6o")
+
+[node name="Flames" parent="BouncyCandleBoy" instance=ExtResource("40_5md3b")]
+position = Vector2(4, -85)
+
+[node name="PointLight2D" type="PointLight2D" parent="BouncyCandleBoy"]
+position = Vector2(-1, -177)
+blend_mode = 2
+texture = ExtResource("42_fvayw")
+
+[connection signal="ready" from="CreditsTheme" to="CreditsTheme" method="play"]

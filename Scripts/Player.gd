@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	var is_alive:bool = current_state != State.FALL && current_state != State.DEAD
 	
-	print(is_alive)
 	if Input.is_action_just_pressed("put_out"):
 		light_toggle(false)
 	if Input.is_action_just_pressed("interact") && is_alive:

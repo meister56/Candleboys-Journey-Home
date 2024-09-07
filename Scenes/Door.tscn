@@ -12,6 +12,7 @@ size = Vector2(131, 24)
 script = ExtResource("1_ysq20")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -125)
 sprite_frames = ExtResource("1_vpovd")
 animation = &"open"

@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 			orientations[orientation_idx].visible = true
 		
 	
-	print(player.current_state)
 	if player.current_state == player.State.INTERACT:
 		orientations[current_orientation].play("interact")
 	elif player.current_state == player.State.IDLE && orientations[current_orientation].is_playing() == false:
