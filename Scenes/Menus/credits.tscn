@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://yhvksetfmgik"]
+[gd_scene load_steps=49 format=3 uid="uid://yhvksetfmgik"]
 
 [ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_slo7o"]
 [ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_xbc6i"]
 [ext_resource type="LabelSettings" uid="uid://cdjwd2u5qb4mx" path="res://Themes/LabelSettings/Small.tres" id="3_62uko"]
+[ext_resource type="Script" path="res://Scripts/Scroll.gd" id="4_4h75i"]
 [ext_resource type="Script" path="res://Scripts/MouseFollow.gd" id="5_3p4h8"]
 [ext_resource type="Texture2D" uid="uid://db4s1h6va4sp1" path="res://Sprites/Flame.png" id="6_2mqdu"]
 [ext_resource type="Texture2D" uid="uid://dj4p6a4atn47o" path="res://Sprites/light_smooth.png" id="7_m3q6y"]
@@ -57,12 +58,6 @@ colors = PackedColorArray(1, 0.501961, 0, 0, 1, 0.556863, 0, 1, 1, 0.211765, 0, 
 [sub_resource type="Gradient" id="Gradient_4b18k"]
 offsets = PackedFloat32Array(0, 0.454023, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 0.751786, 0.533686, 1, 0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2eco"]
-size = Vector2(1145.5, 126)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_81e28"]
-bounce = 2.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f5qwt"]
 animations = [{
@@ -162,10 +157,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3o6o"]
-radius = 29.0
-height = 148.0
-
 [node name="Credits" type="CanvasLayer"]
 layer = 0
 
@@ -190,18 +181,95 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -63.0
-offset_right = 116.0
-offset_bottom = 63.0
+offset_left = -156.0
+offset_top = 576.0
+offset_right = 120.0
+offset_bottom = 2207.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_slo7o")
-text = "Thanks to:
+text = "
 
-Kota56 & Twonklez"
+
+Art
+Kota56 & Twonklez
+
+
+
+Programming
+Twonklez
+
+
+
+Renders
+Kota56
+
+
+
+
+Sound Design
+Kota56
+
+
+
+Level Design
+Kota56
+
+
+
+Game Design
+Twonklez
+
+
+
+Music
+Kota56
+
+
+
+
+Special thanks to
+Kota56 
+(for not giving up)
+Twonklez
+ (For giving it his best)
+Pierporz 
+(for gamejam)
+you!
+(for giving candleboy a chance)
+
+
+
+have a good rest of time!
+"
 label_settings = ExtResource("3_62uko")
 horizontal_alignment = 1
+script = ExtResource("4_4h75i")
+speed = 25.0
+
+[node name="Flames8" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(128, 2541.5)
+
+[node name="Flames9" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(191, 2599.87)
+
+[node name="Flames10" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(251, 2521.5)
+
+[node name="Flames11" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(62, 2441.5)
+
+[node name="Flames12" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(308, 2416.5)
+
+[node name="Flames13" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(89, 2328.5)
+
+[node name="Flames14" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(176, 2368.5)
+
+[node name="Flames15" parent="Credits" instance=ExtResource("40_5md3b")]
+position = Vector2(259, 2320.5)
 
 [node name="MouseFollow" type="Node2D" parent="."]
 script = ExtResource("5_3p4h8")
@@ -271,35 +339,15 @@ color = Color(0.505344, 0.505344, 0.505344, 1)
 stream = ExtResource("10_ebdc6")
 autoplay = true
 
-[node name="Room" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
-position = Vector2(636.5, 1092)
-shape = SubResource("RectangleShape2D_n2eco")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room"]
-position = Vector2(57, 572.75)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_n2eco")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room"]
-position = Vector2(1212, 579)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_n2eco")
-
-[node name="BouncyCandleBoy" type="RigidBody2D" parent="."]
+[node name="BouncyCandleBoy" type="Node2D" parent="." node_paths=PackedStringArray("start", "end")]
 position = Vector2(241, 912)
-physics_material_override = SubResource("PhysicsMaterial_81e28")
-gravity_scale = 0.1
 script = ExtResource("10_hbemf")
+start = NodePath("../Start")
+end = NodePath("../End")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BouncyCandleBoy"]
 sprite_frames = SubResource("SpriteFrames_f5qwt")
 autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyCandleBoy"]
-position = Vector2(-1, 33)
-shape = SubResource("CapsuleShape2D_w3o6o")
 
 [node name="Flames" parent="BouncyCandleBoy" instance=ExtResource("40_5md3b")]
 position = Vector2(4, -85)
@@ -308,5 +356,11 @@ position = Vector2(4, -85)
 position = Vector2(-1, -177)
 blend_mode = 2
 texture = ExtResource("42_fvayw")
+
+[node name="End" type="Node2D" parent="."]
+position = Vector2(1140, 922)
+
+[node name="Start" type="Node2D" parent="."]
+position = Vector2(108, 913)
 
 [connection signal="ready" from="CreditsTheme" to="CreditsTheme" method="play"]

@@ -1,20 +1,24 @@
-extends RigidBody2D
+extends Node2D
 class_name BouncyCandleBoy
 
 
 
-var move_speed:float = 10
+var move_speed:float = 1
 
-func _ready() -> void:
-	
-	add_constant_force(Vector2.RIGHT * oscillate(get_physics_process_delta_time()) * move_speed)
+@export var start:Node2D
+
+@export var end:Node2D
+
+var dir:bool = false
+
 func _physics_process(delta: float) -> void:
-	rotation = 0
-	linear_velocity.x =  oscillate(delta * 5) * move_speed
-	
-	
-	pass
+	if dir:
+		position.x = lerp(position.x, start.position.x, move_speed * delta)
+	else:
+		position.x = lerp(position.x, end.position.x, move_speed * delta)
 
-
-func oscillate(delta: float) -> float:
-	return sin(Time.get_ticks_msec() * delta)
+	# When close enough to the target, switch direction
+	if abs(position.x - start.position.x) < 25:
+		dir = false  # Move towards 'end'
+	elif abs(position.x - end.position.x) <25:
+		dir = true  # Move towards 'start'
