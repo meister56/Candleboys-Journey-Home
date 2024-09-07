@@ -1,4 +1,5 @@
 extends Node2D
+class_name Candle
 
 # Variable to track if the candle is lit
 @export var color:Color = Color.ORANGE
