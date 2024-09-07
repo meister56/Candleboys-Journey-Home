@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://1y3obbpe25pm"]
+[gd_scene load_steps=8 format=4 uid="uid://1y3obbpe25pm"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_ne518"]
 [ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="2_b2i20"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ba6elvfrf28op" path="res://Scenes/FloorTileMap.tscn" id="4_as4hu"]
 [ext_resource type="PackedScene" uid="uid://b0g2qeb331kd6" path="res://Scenes/WallTileMap.scn" id="5_dcsp3"]
 [ext_resource type="PackedScene" uid="uid://c01j7mfsnmt51" path="res://Scenes/Brazier.scn" id="5_yatnu"]
+[ext_resource type="PackedScene" uid="uid://ccudpgfhbbxea" path="res://Scenes/CandleBase.tscn" id="7_n3j50"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,3 +26,6 @@ tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAA
 
 [node name="Brazier" parent="." instance=ExtResource("5_yatnu")]
 position = Vector2(538, 118)
+
+[node name="CandleBase" parent="." instance=ExtResource("7_n3j50")]
+position = Vector2(56, 387)

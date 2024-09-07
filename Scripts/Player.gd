@@ -3,14 +3,12 @@ extends CharacterBody2D
 var flame_color: Color   
 @export var is_lit: bool = true
 
-# Reference to the nearby candle
-var nearby_candle: Node = null
 
 const speed = 300.0
 var is_interacting: bool = false
 
 var current_state: State = State.IDLE # Default to IDLE STATE
-
+@export var interact_range:float = 50
 
 #FOOTSTEP LOGIC
 @export var footstep_rate:float = 0.4
@@ -32,14 +30,19 @@ func get_input():
 	
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		for candle in get_tree().get_nodes_in_group("Candle"):
+			
+			if candle.global_position.distance_to(global_position) <= interact_range:
+				candle.light_candle()
+			
+	
 	if input_direction != Vector2.ZERO:
 		current_state = State.WALK
 		play_footstep_sounds()
 	else:
 		current_state = State.IDLE
 		# Check if the 'E' key is pressed and a candle is nearby
-	if Input.is_action_just_pressed("interact") and nearby_candle:
-		nearby_candle.light_candle()  # Light the candle
 
 	
 	get_input()
@@ -60,17 +63,6 @@ func _physics_process(delta: float) -> void:
 func interact():
 	current_state = State.INTERACT 
 	is_interacting = true
-
-
-# Detect when a candle enters the player's area
-func _on_candle_detection_radius_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("light_candle"):
-		nearby_candle = area.get_parent()  # Store the nearby candle reference
-
-# Detect when the candle leaves the player's area
-func _on_candle_detection_radius_area_exited(area: Area2D) -> void:
-	if area.get_parent() == nearby_candle:
-		nearby_candle = null  # Clear the candle reference when out of range
 
 
 func play_footstep_sounds():

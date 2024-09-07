@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfxww4a8d1q6l"]
+[gd_scene load_steps=4 format=3 uid="uid://ccudpgfhbbxea"]
 
 [ext_resource type="Texture2D" uid="uid://bxshniya3kfv" path="res://Sprites/door_brazier.png" id="1_q3htl"]
 [ext_resource type="Script" path="res://Scripts/CandleScript.gd" id="2_fpgmb"]

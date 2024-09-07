@@ -4,11 +4,14 @@ extends Node2D
 var is_lit = false
 
 func _ready():
-	$Particles2D.emitting = false  # Start with particles off
-
+	add_to_group("Candle")
+	$Flames.emitting = false  # Start with particles off
+	$Flames.visible = false
+	 
 # Function to light the candle
 func light_candle():
 	if not is_lit:
 		is_lit = true
-		$Particles2D.emitting = true  # Emit particles (flame)
+		$Flames.emitting = true 
+		$Flames.visible = true # Emit particles (flame)
 		print("Candle lit!")
