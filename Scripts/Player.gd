@@ -14,7 +14,7 @@ var current_state: State = State.IDLE # Default to IDLE STATE
 @export var footstep_rate:float = 0.4
 @onready var footstep_player:AudioStreamPlayer2D = $FootSteps
 var footstep_time:float 
-
+@onready var put_out_sound:AudioStreamPlayer2D = $PutOut
 var input_direction
 
 enum State {
@@ -32,14 +32,19 @@ func get_input():
 	
 
 func _physics_process(delta: float) -> void:
-	
+	if Input.is_action_just_pressed("put_out"):
+		light_toggle(false)
 	if Input.is_action_just_pressed("interact"):
 		current_state = State.INTERACT
 		for candle in get_tree().get_nodes_in_group("Candle"):
 			
 			if candle.global_position.distance_to(global_position) <= interact_range:
-				candle.light_candle()
-			
+				
+				if candle.is_lit:
+					light_toggle(true)
+				else:
+					candle.light_candle()
+				
 	elif input_direction != Vector2.ZERO:
 		current_state = State.WALK
 		play_footstep_sounds()
@@ -61,6 +66,13 @@ func _physics_process(delta: float) -> void:
 		State.DEAD:
 			pass
 
+
+
+func light_toggle(value:bool):
+	is_lit = value
+	$Flames.visible = value
+	if value == false:
+		put_out_sound.play()
 
 
 func play_footstep_sounds():
