@@ -20,7 +20,8 @@ var input_direction
 enum State {
 	IDLE,
 	WALK,
-	INTERACT
+	INTERACT,
+	DEAD
 }
 
 var interaction_time:float
@@ -46,25 +47,20 @@ func _physics_process(delta: float) -> void:
 		current_state = State.IDLE
 		# Check if the 'E' key is pressed and a candle is nearby
 
-	
-	
 	get_input()
 	
 	move_and_slide()
 	
 	match current_state:
+		
 		State.INTERACT:
-			
 			pass
-	match current_state:
+			
 		State.IDLE:
 			pass
-			
+		State.DEAD:
+			pass
 
-
-func interact():
-	current_state = State.INTERACT 
-	is_interacting = true
 
 
 func play_footstep_sounds():
@@ -73,3 +69,11 @@ func play_footstep_sounds():
 		if footstep_time >= footstep_rate:
 			footstep_time = 0
 			footstep_player.play()
+
+
+func _on_death_zone_body_entered(body: Node2D) -> void:
+	
+	current_state = State.DEAD
+	print("Entered") # Put death stuff here dont ask why
+	get_tree().reload_current_scene()  # Reload Scene if Entered
+	
