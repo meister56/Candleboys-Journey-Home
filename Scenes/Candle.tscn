@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl1clj8bvbah7"]
+
+[ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flame.scn" id="1_b00el"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cbods"]
+
+[node name="CandleBase" type="Sprite2D"]
+scale = Vector2(18.7, 18.7)
+texture = SubResource("PlaceholderTexture2D_cbods")
+
+[node name="Flames" parent="." instance=ExtResource("1_b00el")]
