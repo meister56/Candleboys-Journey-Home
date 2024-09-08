@@ -172,12 +172,10 @@ distance = 200.0
 
 [node name="CandleBase5" parent="." instance=ExtResource("6_hf2t8")]
 position = Vector2(2467, -950)
-scale = Vector2(1, 1)
 color_type = "BLUE"
 
 [node name="CandleBase6" parent="." instance=ExtResource("6_hf2t8")]
 position = Vector2(2467, -647)
-scale = Vector2(1, 1)
 color_type = "BLUE"
 
 [node name="Door3" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("7_srpav")]
