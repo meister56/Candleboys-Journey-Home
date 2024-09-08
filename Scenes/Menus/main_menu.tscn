@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://e55g7hcrn4aa"]
+[gd_scene load_steps=18 format=3 uid="uid://e55g7hcrn4aa"]
 
 [ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_y0o1p"]
 [ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_ee1t5"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="7_0fi6u"]
 [ext_resource type="PackedScene" uid="uid://d07vg53jurd61" path="res://Scenes/Menus/MenuCandleBoy.scn" id="9_nniam"]
 [ext_resource type="AudioStream" uid="uid://b7i1asg0a4b00" path="res://Sounds/Music/Calm.wav" id="11_ekqf3"]
+[ext_resource type="LabelSettings" uid="uid://csd5uev7b3nim" path="res://Themes/LabelSettings/Guide.tres" id="12_s6q7k"]
+[ext_resource type="Script" path="res://Scripts/Esc.gd" id="13_v7163"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mu0l"]
 blend_mode = 1
@@ -158,5 +160,20 @@ position = Vector2(377, 532)
 stream = ExtResource("11_ekqf3")
 autoplay = true
 
+[node name="guide" type="Label" parent="."]
+visible = false
+offset_left = 429.0
+offset_top = 695.0
+offset_right = 883.0
+offset_bottom = 914.0
+text = "Hey, welcome! this game is 
+very simple, your goal is to avoid any hostile shadows and unlock your path using fire, the controls for movement are WASD, standard and for lighting self or torches is E, i recommend paying attention to your light, as it can attract hostiles, to switch it off, press Q.
+have fun!"
+label_settings = ExtResource("12_s6q7k")
+autowrap_mode = 3
+script = ExtResource("13_v7163")
+
 [connection signal="button_up" from="Buttons/Start" to="Buttons/Start" method="change_scene" binds= ["res://Levels/level1.tscn"]]
+[connection signal="button_down" from="Buttons/Guide" to="guide" method="set_visible" binds= [true]]
 [connection signal="button_up" from="Buttons/Credits" to="Buttons/Credits" method="change_scene" binds= ["res://Scenes/Menus/credits.tscn"]]
+[connection signal="escaped" from="guide" to="guide" method="set_visible" binds= [false]]

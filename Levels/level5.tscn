@@ -62,9 +62,9 @@ position = Vector2(0, 0)
 tile_map_data = PackedByteArray("AAAMAPX/AAABAAAAAAANAPX/AAABAAAAAAAJAPf/AAABAAAAAGAJAPj/AAABAAAAAGAKAPb/AAABAAAAAGAKAPn/AAABAAAAAGALAPX/AAABAAAAAAALAPr/AAABAAAAAAANAPr/AAABAAAAAAAPAPf/AAABAAAAAFAPAPj/AAABAAAAAFAJAPn/AAABAAAAACAJAPb/AAABAAAAAAAKAPX/AAABAAAAAAAOAPX/AAABAAAAAAAOAPr/AAABAAAAACAKAPr/AAABAAAAACAPAPn/AAABAAAAACAPAPb/AAABAAAAAAAOAPb/AAABAAAAAFAOAPn/AAABAAAAAFA=")
 
 [node name="Door" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("7_fosn1")]
-position = Vector2(-2358, 47)
+position = Vector2(-2361, 83)
 rotation = -1.57079
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.87772, 1.87772)
 candles_lit_required = [NodePath("../CandleBase5")]
 
 [node name="Laugh" type="AudioStreamPlayer2D" parent="Door"]

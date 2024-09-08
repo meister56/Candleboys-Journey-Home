@@ -41,7 +41,7 @@ sources/0 = SubResource("TileSetAtlasSource_k0d7j")
 [node name="Level6" type="Node2D"]
 
 [node name="CandleBoy" parent="." instance=ExtResource("1_sshad")]
-position = Vector2(521, 237)
+position = Vector2(-5600, 128)
 is_lit = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
@@ -83,6 +83,7 @@ distance = 400.0
 script = ExtResource("13_2lbis")
 
 [node name="Candles" type="Node2D" parent="."]
+visible = false
 
 [node name="CandleBase2" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
 position = Vector2(450, 176)
