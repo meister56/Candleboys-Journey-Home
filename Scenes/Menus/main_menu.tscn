@@ -140,6 +140,7 @@ color = Color(1, 1, 1, 0.0588235)
 color_ramp = SubResource("Gradient_8hhtg")
 
 [node name="Darkness" parent="." instance=ExtResource("6_mmqsr")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -4096
