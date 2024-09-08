@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
   
 @export var is_lit: bool = true
-
+var jumpscare_scene = preload("res://Scenes/Jumpscare.scn").instantiate()
 
 const speed = 300.0
 var is_interacting: bool = false
@@ -83,5 +83,7 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 func die():
 		current_state = State.FALL
 		await get_tree().create_timer(4).timeout
+		get_tree().root.add_child(jumpscare_scene)
+		await get_tree().create_timer(5).timeout
 		get_tree().reload_current_scene()  # Reload Scene if Entered
 		pass # Replace with function body.
