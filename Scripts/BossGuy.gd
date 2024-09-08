@@ -23,8 +23,24 @@ func _physics_process(delta: float) -> void:
 				global_position = (player.global_position + (direction * 1000).rotated(randf_range(0,1)))
 				tp_time = 0
 	move_and_slide()
-	
-		
+	if abs(velocity.x) > abs(velocity.y):
+		if velocity.x > 0:
+			$Right.visible = true
+			$Left.visible = false
+		else:
+			$Right.visible = false
+			$Left.visible = true
+		$Back.visible = false
+		$Front.visible = false
+	else:
+		$Right.visible = false
+		$Left.visible = false
+		if velocity.y > 0:
+			$Back.visible = false
+			$Front.visible = true
+		else:
+			$Front.visible = false
+			$Back.visible = true
 func _on_shoot_timer_timeout() -> void:
 	spawn_bullet()
 
@@ -32,7 +48,6 @@ func spawn_bullet() -> void:
 	var bullet = bullet.instantiate() as Node2D
 	bullet.global_position = global_position + (-global_position.direction_to(bullet.global_position))
 	get_tree().current_scene.add_child(bullet)
-	$BossGuy.play()
 func _on_cooldown_timeout() -> void:
 	spawn_bullet()
 	pass # Replace with function body.

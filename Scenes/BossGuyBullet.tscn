@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="4_mnuhb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o80bp"]
-radius = 5.0
+radius = 33.71
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3mu0l"]
 blend_mode = 1
@@ -51,7 +51,8 @@ spread = 14.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 4.0
 initial_velocity_max = 60.0
-scale_amount_min = 0.5
+scale_amount_min = 2.0
+scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_bd20f")
 color_ramp = SubResource("Gradient_kvrnn")
 
