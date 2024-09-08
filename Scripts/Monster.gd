@@ -22,9 +22,9 @@ func _physics_process(delta: float) -> void:
 			velocity = lerp(velocity,Vector2.ZERO,delta)
 			tp_time += delta
 			if tp_time > tp_rate:
-				tp_time = 0
-				print(global_position)
+				
 				global_position = (player.global_position + (direction * 1000).rotated(randf_range(0,1)))
+				tp_time = 0
 	move_and_slide()
 	
 func _on_bad_guy_death_zone_body_entered(body: Node2D) -> void:
