@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3aovnr7nva4c"]
+[gd_scene load_steps=7 format=3 uid="uid://b3aovnr7nva4c"]
 
 [ext_resource type="Script" path="res://Scripts/FlameRenderer.gd" id="1_apw02"]
 [ext_resource type="PackedScene" uid="uid://dgvhpgiup1pd6" path="res://Scenes/Flames/Flame.scn" id="2_q73ms"]
 [ext_resource type="PackedScene" uid="uid://dup3y6hna6783" path="res://Scenes/Flames/FlameBlue.scn" id="3_4xv22"]
 [ext_resource type="PackedScene" uid="uid://dmy5cjxv0d5t4" path="res://Scenes/Flames/FlameGreen.tscn" id="4_orgp2"]
+[ext_resource type="AudioStream" uid="uid://bqaiq2rfoa6fm" path="res://Sounds/flame_crackle.mp3" id="5_nm06h"]
+[ext_resource type="Script" path="res://Sprites/SoundWhenVisible.gd" id="6_2yvsy"]
 
 [node name="FlameRenderer" type="Node2D"]
 position = Vector2(8, -136)
@@ -14,3 +16,10 @@ script = ExtResource("1_apw02")
 [node name="BLUE" parent="." instance=ExtResource("3_4xv22")]
 
 [node name="GREEN" parent="." instance=ExtResource("4_orgp2")]
+
+[node name="FireCrackle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nm06h")
+autoplay = true
+script = ExtResource("6_2yvsy")
+
+[connection signal="finished" from="FireCrackle" to="FireCrackle" method="play"]

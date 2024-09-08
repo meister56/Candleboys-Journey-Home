@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://yhvksetfmgik"]
+[gd_scene load_steps=52 format=3 uid="uid://yhvksetfmgik"]
 
 [ext_resource type="Theme" uid="uid://cmkg1xqvj8y56" path="res://Themes/default.theme" id="1_slo7o"]
 [ext_resource type="LabelSettings" uid="uid://ctxavp8hlmyd5" path="res://Themes/LabelSettings/Title.tres" id="2_xbc6i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Scroll.gd" id="4_4h75i"]
 [ext_resource type="Script" path="res://Scripts/MouseFollow.gd" id="5_3p4h8"]
 [ext_resource type="Texture2D" uid="uid://db4s1h6va4sp1" path="res://Sprites/Flame.png" id="6_2mqdu"]
+[ext_resource type="AudioStream" uid="uid://bqaiq2rfoa6fm" path="res://Sounds/flame_crackle.mp3" id="6_jj8hh"]
 [ext_resource type="Texture2D" uid="uid://dj4p6a4atn47o" path="res://Sprites/light_smooth.png" id="7_m3q6y"]
 [ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="8_p843w"]
 [ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="9_bodvq"]
@@ -275,6 +276,12 @@ Journey Home
 label_settings = ExtResource("2_xbc6i")
 horizontal_alignment = 1
 
+[node name="FireCrackle" type="AudioStreamPlayer2D" parent="Credits"]
+position = Vector2(181, 2442)
+stream = ExtResource("6_jj8hh")
+volume_db = 4.0
+autoplay = true
+
 [node name="MouseFollow" type="Node2D" parent="."]
 script = ExtResource("5_3p4h8")
 
@@ -373,5 +380,6 @@ script = ExtResource("44_ttvpa")
 [node name="MenuChanger" type="Node" parent="GotoMenuOnEsc"]
 script = ExtResource("45_ij2wh")
 
+[connection signal="finished" from="Credits/FireCrackle" to="Credits/FireCrackle" method="play"]
 [connection signal="ready" from="CreditsTheme" to="CreditsTheme" method="play"]
 [connection signal="escaped" from="GotoMenuOnEsc" to="GotoMenuOnEsc/MenuChanger" method="change_scene" binds= ["res://Scenes/Menus/main_menu.tscn"]]

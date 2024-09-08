@@ -4,7 +4,7 @@ class_name Player
 @export var is_lit: bool = true
 
 
-@export var speed = 300.0
+const speed = 300.0
 var is_interacting: bool = false
 
 var color_type = "RED"

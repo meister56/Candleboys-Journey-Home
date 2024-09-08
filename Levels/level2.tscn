@@ -47,7 +47,6 @@ size = Vector2(298.077, 203.846)
 [node name="Level2" type="Node2D"]
 
 [node name="CandleBoy" parent="." instance=ExtResource("1_m0yp7")]
-speed = 500.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_b8np8")
@@ -155,7 +154,7 @@ position = Vector2(665.385, -814.904)
 shape = SubResource("RectangleShape2D_m7gvb")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(896.154, -864.423)
+position = Vector2(902.404, -884.135)
 shape = SubResource("RectangleShape2D_m7gvb")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="DeathZone"]
@@ -179,7 +178,7 @@ position = Vector2(2467, -647)
 color_type = "BLUE"
 
 [node name="Door3" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("7_srpav")]
-position = Vector2(2768, -868)
+position = Vector2(2774, -912)
 rotation = 1.5708
 scale = Vector2(1.94035, 1.94035)
 candles_lit_required = [NodePath("../CandleBase5"), NodePath("../CandleBase6")]

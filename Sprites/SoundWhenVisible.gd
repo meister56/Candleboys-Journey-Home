@@ -5,7 +5,7 @@ class_name SoundWhenVisible
 
 func _physics_process(delta: float) -> void:
 	
-	if visible == false:
+	if get_parent().visible == false:
 		
 		volume_db = -100
 		

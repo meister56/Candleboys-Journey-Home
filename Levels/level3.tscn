@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ci2hv70prl2qp"]
+[gd_scene load_steps=14 format=4 uid="uid://dc4rxghxy4m3f"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_qaw8r"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_w5jkl"]
@@ -39,6 +39,7 @@ script = ExtResource("2_w5jkl")
 target = NodePath("../CandleBoy")
 
 [node name="Darkness" parent="." instance=ExtResource("3_pc00x")]
+visible = false
 position = Vector2(-380, -439)
 
 [node name="Floor" type="TileMapLayer" parent="."]
