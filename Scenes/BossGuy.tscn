@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0j1cpebt85vx"]
+[gd_scene load_steps=7 format=3 uid="uid://cbsuek1q8jfml"]
 
 [ext_resource type="Script" path="res://Scripts/BossGuy.gd" id="1_t5df7"]
 [ext_resource type="SpriteFrames" uid="uid://dqdr57fymjidw" path="res://Sprites/Monster/monster_front_frames.tres" id="1_yf221"]
@@ -12,9 +12,6 @@ colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0
 [sub_resource type="Gradient" id="Gradient_m600i"]
 offsets = PackedFloat32Array(0.183908, 0.229885, 0.270115, 0.706897, 0.752874, 0.821839)
 colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vhcol"]
-radius = 25.78
 
 [node name="BossGuy" type="CharacterBody2D"]
 scale = Vector2(5.595, 5.595)
@@ -48,11 +45,6 @@ blend_mode = 2
 texture = ExtResource("2_htw5t")
 script = ExtResource("3_0eld0")
 gradient = SubResource("Gradient_m600i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.07239, 37.3548)
-scale = Vector2(0.415, 0.415)
-shape = SubResource("CircleShape2D_vhcol")
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 1.5

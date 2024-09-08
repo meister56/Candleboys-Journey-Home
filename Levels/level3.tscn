@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://ck78ifplt8qvd" path="res://Scenes/BadGuy.scn" id="8_0q57c"]
 [ext_resource type="AudioStream" uid="uid://d0nofapfmjev3" path="res://Sounds/Evil/demonic_sounds_distant.wav" id="9_30rtw"]
 [ext_resource type="Script" path="res://Scripts/PlaySoundInRange.gd" id="10_ts3sk"]
-[ext_resource type="PackedScene" path="res://Scenes/BossGuy.tscn" id="11_s3omj"]
 [ext_resource type="AudioStream" uid="uid://cje4hnwrs3yop" path="res://Sounds/Music/Level3.wav" id="12_ec5ok"]
 [ext_resource type="Texture2D" uid="uid://dj4p6a4atn47o" path="res://Sprites/light_smooth.png" id="13_fc0wj"]
+[ext_resource type="Script" path="res://Scripts/SceneChanger.gd" id="14_l0r0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2luni"]
 texture = ExtResource("4_mfle7")
@@ -135,7 +135,13 @@ rotation = 1.5708
 scale = Vector2(0.833333, 0.833333)
 
 [node name="BadGuy" parent="." instance=ExtResource("8_0q57c")]
-position = Vector2(-928, 1334)
+position = Vector2(972, 863)
+
+[node name="BadGuy2" parent="." instance=ExtResource("8_0q57c")]
+position = Vector2(-250, -1389)
+
+[node name="BadGuy3" parent="." instance=ExtResource("8_0q57c")]
+position = Vector2(1796, -780)
 
 [node name="PlayInRange" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(333, 9)
@@ -170,9 +176,6 @@ shape = SubResource("RectangleShape2D_smyka")
 position = Vector2(-1755.77, -2834.13)
 shape = SubResource("RectangleShape2D_avt05")
 
-[node name="BossGuy" parent="." instance=ExtResource("11_s3omj")]
-position = Vector2(-1876, 627)
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ec5ok")
 autoplay = true
@@ -197,5 +200,9 @@ color = Color(0.722082, 1, 0.993907, 1)
 energy = 0.57
 texture = ExtResource("13_fc0wj")
 
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("14_l0r0d")
+
+[connection signal="just_opened" from="Door5" to="SceneChanger" method="change_scene" binds= ["res://Levels/level4.tscn"]]
 [connection signal="just_opened" from="Door4" to="CandleBoy" method="_on_door_4_just_opened"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]

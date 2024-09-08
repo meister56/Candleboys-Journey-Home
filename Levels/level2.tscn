@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://ci2hv70prl2qp"]
+[gd_scene load_steps=20 format=4 uid="uid://ci2hv70prl2qp"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_m0yp7"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_b8np8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/PlaySoundInRange.gd" id="10_5b4ks"]
 [ext_resource type="LabelSettings" uid="uid://csd5uev7b3nim" path="res://Themes/LabelSettings/Guide.tres" id="11_jmi8g"]
 [ext_resource type="AudioStream" uid="uid://cvnpmxmsi8f2b" path="res://Sounds/Evil/evil_mock_1.wav" id="12_a15t8"]
+[ext_resource type="AudioStream" uid="uid://dhppblnqns1wh" path="res://Sounds/Music/level2.wav" id="12_h2c2n"]
 [ext_resource type="Script" path="res://Scripts/SceneChanger.gd" id="13_2nbny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2luni"]
@@ -53,7 +54,6 @@ script = ExtResource("2_b8np8")
 target = NodePath("../CandleBoy")
 
 [node name="Darkness" parent="." instance=ExtResource("3_xl6ur")]
-visible = false
 position = Vector2(-380, -439)
 
 [node name="Floor" type="TileMapLayer" parent="."]
@@ -164,6 +164,7 @@ position = Vector2(902.404, -400.962)
 shape = SubResource("RectangleShape2D_m7gvb")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_h2c2n")
 
 [node name="PlaySoundInRange" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-3906, 968)
