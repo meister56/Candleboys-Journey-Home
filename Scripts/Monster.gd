@@ -17,4 +17,5 @@ func _physics_process(delta: float) -> void:
 	
 func _on_bad_guy_death_zone_body_entered(body: Node2D) -> void:
 	if body.name == "CandleBoy":
+		$Laughs.play()
 		player.die()
