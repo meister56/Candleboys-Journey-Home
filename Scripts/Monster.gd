@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Monster
 
 
-var move_speed:float = 80
+var move_speed:float = 150
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 
