@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dc4rxghxy4m3f"]
+[gd_scene load_steps=16 format=4 uid="uid://dc4rxghxy4m3f"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_qaw8r"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_w5jkl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ck78ifplt8qvd" path="res://Scenes/BadGuy.scn" id="8_0q57c"]
 [ext_resource type="AudioStream" uid="uid://d0nofapfmjev3" path="res://Sounds/Evil/demonic_sounds_distant.wav" id="9_30rtw"]
 [ext_resource type="Script" path="res://Scripts/PlaySoundInRange.gd" id="10_ts3sk"]
+[ext_resource type="PackedScene" uid="uid://c0j1cpebt85vx" path="res://Scenes/BossGuy.tscn" id="11_s3omj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2luni"]
 texture = ExtResource("4_mfle7")
@@ -167,6 +168,9 @@ shape = SubResource("RectangleShape2D_smyka")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(-1755.77, -2834.13)
 shape = SubResource("RectangleShape2D_avt05")
+
+[node name="BossGuy" parent="." instance=ExtResource("11_s3omj")]
+position = Vector2(-1876, 627)
 
 [connection signal="just_opened" from="Door4" to="CandleBoy" method="_on_door_4_just_opened"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]

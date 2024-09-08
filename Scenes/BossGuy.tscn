@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0j1cpebt85vx"]
+
+[ext_resource type="Script" path="res://Scripts/BossGuy.gd" id="1_t5df7"]
+[ext_resource type="SpriteFrames" uid="uid://dqdr57fymjidw" path="res://Sprites/Monster/monster_front_frames.tres" id="1_yf221"]
+[ext_resource type="Texture2D" uid="uid://r8ae5jm04m50" path="res://Sprites/light_shine.png" id="2_htw5t"]
+[ext_resource type="Script" path="res://Scripts/DynamicLight.gd" id="3_0eld0"]
+
+[sub_resource type="Gradient" id="Gradient_t1vu2"]
+offsets = PackedFloat32Array(0.183908, 0.229885, 0.270115, 0.706897, 0.752874, 0.821839)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_m600i"]
+offsets = PackedFloat32Array(0.183908, 0.229885, 0.270115, 0.706897, 0.752874, 0.821839)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhcol"]
+radius = 25.78
+
+[node name="BossGuy" type="CharacterBody2D"]
+scale = Vector2(5.595, 5.595)
+script = ExtResource("1_t5df7")
+
+[node name="BossGuy" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.103744, 0.103744, 0.103744, 1)
+y_sort_enabled = true
+use_parent_material = true
+scale = Vector2(0.415, 0.415)
+sprite_frames = ExtResource("1_yf221")
+animation = &"attack"
+frame_progress = 0.103026
+
+[node name="PointLight2D" type="PointLight2D" parent="BossGuy"]
+position = Vector2(-14, 48)
+scale = Vector2(0.59375, 0.59375)
+color = Color(1, 0, 0, 1)
+energy = 9.65
+blend_mode = 2
+texture = ExtResource("2_htw5t")
+script = ExtResource("3_0eld0")
+gradient = SubResource("Gradient_t1vu2")
+
+[node name="PointLight2D2" type="PointLight2D" parent="BossGuy"]
+position = Vector2(13.674, 48.8819)
+scale = Vector2(0.460959, 0.612369)
+color = Color(1, 0, 0, 1)
+energy = 9.65
+blend_mode = 2
+texture = ExtResource("2_htw5t")
+script = ExtResource("3_0eld0")
+gradient = SubResource("Gradient_m600i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.07239, 37.3548)
+scale = Vector2(0.415, 0.415)
+shape = SubResource("CircleShape2D_vhcol")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
