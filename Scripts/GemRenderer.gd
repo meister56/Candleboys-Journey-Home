@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	for flame_idx in range(flames.size()):
 		

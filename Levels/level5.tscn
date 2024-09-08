@@ -48,7 +48,6 @@ script = ExtResource("2_1rt0h")
 target = NodePath("../CandleBoy")
 
 [node name="Darkness" parent="." instance=ExtResource("3_12ipt")]
-visible = false
 position = Vector2(-380, -439)
 
 [node name="Floor" type="TileMapLayer" parent="."]
@@ -101,7 +100,7 @@ stream = ExtResource("12_tiulb")
 script = ExtResource("11_pxvj5")
 distance = 300.0
 
-[node name="ToLVL5" type="Node" parent="."]
+[node name="ToLVL6" type="Node" parent="."]
 script = ExtResource("13_5lgvl")
 
 [node name="BadGuy2" parent="." instance=ExtResource("9_fxn0n")]
@@ -174,4 +173,4 @@ color_type = "BLUE"
 [connection signal="just_opened" from="Door" to="Door/Laugh" method="play"]
 [connection signal="just_opened" from="Door2" to="Door2/Laugh" method="play"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]
-[connection signal="just_opened" from="Escape" to="ToLVL5" method="change_scene" binds= [""]]
+[connection signal="just_opened" from="Escape" to="ToLVL6" method="change_scene" binds= ["res://Levels/level6.tscn"]]

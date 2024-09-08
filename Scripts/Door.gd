@@ -11,7 +11,7 @@ signal just_opened
 
 var opened:bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	check_all_candles_lit()
 

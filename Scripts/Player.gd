@@ -34,7 +34,7 @@ func get_input():
 	velocity = (input_direction * speed)
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	var is_alive:bool = current_state != State.FALL 
 	
@@ -83,7 +83,8 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 func die():
 		current_state = State.FALL
 		await get_tree().create_timer(4).timeout
-		get_tree().root.add_child(jumpscare_scene)
+		if jumpscare_scene.get_parent() == null:
+			get_tree().current_scene.add_child(jumpscare_scene)
 		await get_tree().create_timer(5).timeout
 		get_tree().reload_current_scene()  # Reload Scene if Entered
 		pass # Replace with function body.

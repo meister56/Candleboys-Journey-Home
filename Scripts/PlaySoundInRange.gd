@@ -8,7 +8,7 @@ class_name PlaySoundInRange
 
 var once:bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	
 	if get_tree().get_first_node_in_group("Player") != null && once == false:

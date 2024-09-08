@@ -1,0 +1,170 @@
+[gd_scene load_steps=18 format=3 uid="uid://b27jx6ky5jbtp"]
+
+[ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_sshad"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_7icsx"]
+[ext_resource type="PackedScene" uid="uid://b4mf4vewxohku" path="res://Scenes/Lighting/DarkEnvironment.scn" id="3_63t6e"]
+[ext_resource type="Texture2D" uid="uid://djd0yljhlnbn2" path="res://Tiles/floor_atlas.png" id="4_baw4a"]
+[ext_resource type="PackedScene" uid="uid://b0g2qeb331kd6" path="res://Scenes/WallTileMap.scn" id="5_8ens3"]
+[ext_resource type="PackedScene" uid="uid://pdcu5qwmg833" path="res://Scenes/Door.tscn" id="6_jfebt"]
+[ext_resource type="AudioStream" uid="uid://c8wyjh3whnbjx" path="res://Sounds/Evil/fake_door_mock1.wav" id="7_4tc11"]
+[ext_resource type="PackedScene" uid="uid://ck78ifplt8qvd" path="res://Scenes/BadGuy.scn" id="8_t0glm"]
+[ext_resource type="AudioStream" uid="uid://d0nofapfmjev3" path="res://Sounds/Evil/demonic_sounds_distant.wav" id="9_h5cje"]
+[ext_resource type="Script" path="res://Scripts/PlaySoundInRange.gd" id="10_alpp2"]
+[ext_resource type="AudioStream" uid="uid://cufikp1rq7r2n" path="res://Sounds/Music/Escape.wav" id="11_ktvx3"]
+[ext_resource type="AudioStream" uid="uid://d114ooyl4u2of" path="res://Sounds/Evil/evil_laugh_fast_1.wav" id="12_48r6q"]
+[ext_resource type="Script" path="res://Scripts/SceneChanger.gd" id="13_2lbis"]
+[ext_resource type="PackedScene" uid="uid://ccudpgfhbbxea" path="res://Scenes/CandleBase.tscn" id="14_e6r4t"]
+[ext_resource type="Texture2D" uid="uid://r8ae5jm04m50" path="res://Sprites/light_shine.png" id="16_0rmfa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0d7j"]
+texture = ExtResource("4_baw4a")
+texture_region_size = Vector2i(64, 40)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ctcdx"]
+tile_size = Vector2i(64, 40)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_k0d7j")
+
+[node name="Level6" type="Node2D"]
+
+[node name="CandleBoy" parent="." instance=ExtResource("1_sshad")]
+position = Vector2(2, -7)
+is_lit = false
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_7icsx")
+target = NodePath("../CandleBoy")
+
+[node name="Darkness" parent="." instance=ExtResource("3_63t6e")]
+visible = false
+position = Vector2(-380, -439)
+
+[node name="Floor" type="TileMapLayer" parent="."]
+z_index = -1
+position = Vector2(24, 20)
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_ctcdx")
+
+[node name="Walls" parent="." instance=ExtResource("5_8ens3")]
+position = Vector2(0, 0)
+tile_map_data = PackedByteArray()
+
+[node name="Door" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("6_jfebt")]
+position = Vector2(-2358, 47)
+rotation = -1.57079
+scale = Vector2(1.2, 1.2)
+candles_lit_required = [NodePath("../CandleBase5")]
+
+[node name="Laugh" type="AudioStreamPlayer2D" parent="Door"]
+stream = ExtResource("7_4tc11")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("6_jfebt")]
+position = Vector2(2468, -991)
+scale = Vector2(1.2, 1.2)
+candles_lit_required = [NodePath("../CandleBase8")]
+
+[node name="Laugh" type="AudioStreamPlayer2D" parent="Door2"]
+stream = ExtResource("7_4tc11")
+
+[node name="BadGuy" parent="." instance=ExtResource("8_t0glm")]
+position = Vector2(1164, 1028)
+
+[node name="PlayInRange" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(5, 361)
+stream = ExtResource("9_h5cje")
+script = ExtResource("10_alpp2")
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(535, 552)
+scale = Vector2(2.08, 2.08)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ktvx3")
+autoplay = true
+
+[node name="PlaySoundInRange" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-3348, 1239)
+stream = ExtResource("12_48r6q")
+script = ExtResource("10_alpp2")
+distance = 300.0
+
+[node name="ToLVL6" type="Node" parent="."]
+script = ExtResource("13_2lbis")
+
+[node name="BadGuy2" parent="." instance=ExtResource("8_t0glm")]
+position = Vector2(541, 2905)
+
+[node name="BadGuy3" parent="." instance=ExtResource("8_t0glm")]
+position = Vector2(-1142, -1054)
+
+[node name="BadGuy4" parent="." instance=ExtResource("8_t0glm")]
+position = Vector2(1468, 381)
+
+[node name="BadGuy5" parent="." instance=ExtResource("8_t0glm")]
+position = Vector2(-1928, 1161)
+
+[node name="Escape" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("6_jfebt")]
+position = Vector2(0, -2641)
+scale = Vector2(1.2, 1.2)
+candles_lit_required = [NodePath("../CandleBase2"), NodePath("../CandleBase3"), NodePath("../CandleBase4")]
+
+[node name="CandleBase" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(2449, -1535)
+is_lit = true
+
+[node name="CandleBase2" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(31, 223)
+
+[node name="CandleBase3" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(-166, -177)
+color_type = "GREEN"
+
+[node name="CandleBase4" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(215, -191)
+color_type = "BLUE"
+
+[node name="CandleBase5" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(-2027, 132)
+color_type = "GREEN"
+
+[node name="CandleBase6" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(-2979, -33)
+color_type = "BLUE"
+is_lit = true
+
+[node name="CandleBase7" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(36, 4131)
+color_type = "GREEN"
+is_lit = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-2968, 19)
+scale = Vector2(13.6911, 13.6911)
+color = Color(0, 1, 1, 1)
+texture = ExtResource("16_0rmfa")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(52, 4217)
+scale = Vector2(13.6911, 13.6911)
+color = Color(0.94902, 1, 0.67451, 1)
+texture = ExtResource("16_0rmfa")
+
+[node name="CandleBase8" parent="." instance=ExtResource("14_e6r4t")]
+position = Vector2(2279, -939)
+color_type = "BLUE"
+
+[connection signal="just_opened" from="Door" to="Door/Laugh" method="play"]
+[connection signal="just_opened" from="Door2" to="Door2/Laugh" method="play"]
+[connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]
+[connection signal="just_opened" from="Escape" to="ToLVL6" method="change_scene" binds= [""]]
