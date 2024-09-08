@@ -10,7 +10,7 @@ var move_speed:float = 80
 func _physics_process(delta: float) -> void:
 	var direction:Vector2 = global_position.direction_to(player.global_position)
 	if player != null:
-		if player.is_lit || global_position.distance_to(player.global_position) < 500:
+		if player.is_lit || global_position.distance_to(player.global_position) < 300:
 			velocity = direction * move_speed
 		
 	move_and_slide()
