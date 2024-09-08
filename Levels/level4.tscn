@@ -256,7 +256,7 @@ texture = ExtResource("15_gb0rq")
 [node name="PointLight2D3" type="PointLight2D" parent="."]
 position = Vector2(-2611, 1351)
 scale = Vector2(12.2422, 5.52344)
-color = Color(0.257454, 0.251879, 0, 1)
+color = Color(0.440377, 0.292073, 4.81308e-08, 1)
 texture = ExtResource("15_gb0rq")
 
 [node name="PointLight2D4" type="PointLight2D" parent="."]
