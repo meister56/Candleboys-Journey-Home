@@ -9,10 +9,12 @@
 size = Vector2(131, 24)
 
 [node name="Door" type="StaticBody2D"]
+z_index = -2
 script = ExtResource("1_ysq20")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
+z_index = -1
+z_as_relative = false
 position = Vector2(0, -125)
 sprite_frames = ExtResource("1_vpovd")
 animation = &"open"
