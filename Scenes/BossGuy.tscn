@@ -54,12 +54,9 @@
 [ext_resource type="Texture2D" uid="uid://djrk0bq0o8c7n" path="res://Sprites/Boss/Attack/Side/0023.png" id="52_btw8i"]
 [ext_resource type="Texture2D" uid="uid://bwdjyk4a2yf76" path="res://Sprites/Boss/Attack/Side/0024.png" id="53_mm8m8"]
 [ext_resource type="Texture2D" uid="uid://ch4px5vg434jh" path="res://Sprites/Boss/Attack/Side/0025.png" id="54_ehnqj"]
+[ext_resource type="AudioStream" uid="uid://db0ls1kt414ix" path="res://Sounds/Evil/roar2.wav" id="55_bhtcp"]
 
 [sub_resource type="Gradient" id="Gradient_t1vu2"]
-offsets = PackedFloat32Array(0.183908, 0.229885, 0.270115, 0.706897, 0.752874, 0.821839)
-colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_m600i"]
 offsets = PackedFloat32Array(0.183908, 0.229885, 0.270115, 0.706897, 0.752874, 0.821839)
 colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 0.838129, 0, 0, 1, 0.952941, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1)
 
@@ -232,26 +229,17 @@ animations = [{
 [node name="BossGuy" type="CharacterBody2D"]
 scale = Vector2(5.595, 5.595)
 script = ExtResource("1_t5df7")
+death_sound = ExtResource("55_bhtcp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-5.81, 19.92)
-scale = Vector2(0.246406, 0.246406)
+position = Vector2(2.14477, 37.3548)
+scale = Vector2(2.06946, 2.06946)
 color = Color(1, 0, 0, 1)
-energy = 9.65
+energy = 2.0
 blend_mode = 2
 texture = ExtResource("2_htw5t")
 script = ExtResource("3_0eld0")
 gradient = SubResource("Gradient_t1vu2")
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(5.67471, 20.286)
-scale = Vector2(0.191298, 0.254133)
-color = Color(1, 0, 0, 1)
-energy = 9.65
-blend_mode = 2
-texture = ExtResource("2_htw5t")
-script = ExtResource("3_0eld0")
-gradient = SubResource("Gradient_m600i")
 
 [node name="Front" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b27jx6ky5jbtp"]
+[gd_scene load_steps=20 format=4 uid="uid://b27jx6ky5jbtp"]
 
 [ext_resource type="PackedScene" uid="uid://67no56y7b6m4" path="res://Scenes/CandleBoy.scn" id="1_sshad"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="2_7icsx"]
@@ -14,7 +14,9 @@
 [ext_resource type="Script" path="res://Scripts/SceneChanger.gd" id="13_2lbis"]
 [ext_resource type="PackedScene" uid="uid://ccudpgfhbbxea" path="res://Scenes/CandleBase.tscn" id="14_e6r4t"]
 [ext_resource type="PackedScene" uid="uid://c8wpmtyij2x5k" path="res://Cutscenes/Boss.scn" id="15_3gywo"]
+[ext_resource type="Script" path="res://Scripts/Spawner.gd" id="15_omn5q"]
 [ext_resource type="Texture2D" uid="uid://r8ae5jm04m50" path="res://Sprites/light_shine.png" id="16_0rmfa"]
+[ext_resource type="PackedScene" uid="uid://cbsuek1q8jfml" path="res://Scenes/BossGuy.tscn" id="17_22dew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0d7j"]
 texture = ExtResource("4_baw4a")
@@ -39,7 +41,8 @@ sources/0 = SubResource("TileSetAtlasSource_k0d7j")
 [node name="Level6" type="Node2D"]
 
 [node name="CandleBoy" parent="." instance=ExtResource("1_sshad")]
-position = Vector2(440, 305)
+position = Vector2(521, 237)
+is_lit = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_7icsx")
@@ -79,7 +82,57 @@ distance = 400.0
 [node name="ToCredits" type="Node" parent="."]
 script = ExtResource("13_2lbis")
 
+[node name="Candles" type="Node2D" parent="."]
+
+[node name="CandleBase2" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(450, 176)
+
+[node name="CandleBase10" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(-234, -616)
+is_lit = true
+
+[node name="CandleBase3" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(2270, 195)
+color_type = "BLUE"
+
+[node name="CandleBase4" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(1324, -556)
+
+[node name="CandleBase5" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(1377, 1026)
+
+[node name="CandleBase6" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(762, 737)
+color_type = "GREEN"
+
+[node name="CandleBase7" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(1903, -340)
+
+[node name="CandleBase8" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(736, -337)
+color_type = "GREEN"
+
+[node name="CandleBase9" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(1907, 764)
+color_type = "BLUE"
+
+[node name="CandleBase11" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(2838, 1359)
+
+[node name="CandleBase12" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(2884, -719)
+color_type = "GREEN"
+is_lit = true
+
+[node name="CandleBase13" parent="Candles" groups=["KillerCandle"] instance=ExtResource("14_e6r4t")]
+position = Vector2(-271, 1325)
+color_type = "BLUE"
+is_lit = true
+
 [node name="Couch" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(1342, -160)
 texture = ExtResource("11_wkvqm")
 
@@ -95,13 +148,36 @@ candles_lit_required = [NodePath("../CandleBase")]
 [node name="CandleBase" parent="." instance=ExtResource("14_e6r4t")]
 position = Vector2(-5428, 3435)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 100
-visible = false
+[node name="Cutscenespawn" type="Node2D" parent="."]
+script = ExtResource("15_omn5q")
+scene = ExtResource("15_3gywo")
 
-[node name="BossCut" parent="CanvasLayer" instance=ExtResource("15_3gywo")]
+[node name="BosSpawn" type="Node2D" parent="."]
+position = Vector2(-1345, 980)
+script = ExtResource("15_omn5q")
+scene = ExtResource("17_22dew")
 
-[connection signal="finished" from="monster" to="CanvasLayer" method="set_visible" binds= [true]]
+[node name="BossSpawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("13_2lbis")
+
+[node name="QuitTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Door2" parent="." node_paths=PackedStringArray("candles_lit_required") instance=ExtResource("6_jfebt")]
+position = Vector2(5501, 3215)
+candles_lit_required = [NodePath("../Candles/CandleBase2"), NodePath("../Candles/CandleBase10"), NodePath("../Candles/CandleBase3"), NodePath("../Candles/CandleBase4"), NodePath("../Candles/CandleBase5"), NodePath("../Candles/CandleBase6"), NodePath("../Candles/CandleBase7"), NodePath("../Candles/CandleBase8"), NodePath("../Candles/CandleBase9"), NodePath("../Candles/CandleBase11"), NodePath("../Candles/CandleBase12"), NodePath("../Candles/CandleBase13")]
+
+[connection signal="finished" from="monster" to="Cutscenespawn" method="instance_scene"]
+[connection signal="finished" from="monster" to="BossSpawnTimer" method="start"]
 [connection signal="body_entered" from="DeathZone" to="CandleBoy" method="_on_death_zone_body_entered"]
 [connection signal="finished" from="Goodnight" to="monster" method="play"]
-[connection signal="animation_finished" from="CanvasLayer/BossCut" to="CanvasLayer" method="set_visible" binds= [false]]
+[connection signal="timeout" from="BossSpawnTimer" to="Music" method="play"]
+[connection signal="timeout" from="BossSpawnTimer" to="BosSpawn" method="instance_scene"]
+[connection signal="timeout" from="BossSpawnTimer" to="Candles" method="set_visible" binds= [true]]
+[connection signal="timeout" from="BossSpawnTimer" to="PointLight2D" method="set_visible" binds= [false]]
+[connection signal="timeout" from="QuitTimer" to="SceneChanger" method="change_scene" binds= [&"res://Scenes/Menus/credits.tscn"]]
+[connection signal="just_opened" from="Door2" to="QuitTimer" method="start"]

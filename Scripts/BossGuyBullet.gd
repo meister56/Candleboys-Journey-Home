@@ -1,5 +1,5 @@
 extends Node2D
-@export var speed: float = 200.0
+@export var speed: float = 450.0
 var velocity: Vector2
 
 # Reference to the player

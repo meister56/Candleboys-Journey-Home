@@ -4,14 +4,26 @@ class_name BossGuy
 #import bullet scene
 var bullet = preload("res://Scenes/BossGuyBullet.tscn")
 @onready var player = get_tree().get_first_node_in_group("Player")
-var move_speed:float = 150
+var move_speed:float = 180
 var tp_rate:float = 15
 var tp_time:float
 @onready var cooldown = $Cooldown
 
+var kill_candles:Array[Node]
+
+@export var  death_sound:AudioStream
+
 const speed = 300.0
+
+
+func _ready() -> void:
+	
+	
+	kill_candles = get_tree().get_nodes_in_group("KillerCandle")
+
 func _physics_process(delta: float) -> void:
 	
+	check_for_death()
 	if player != null:
 		var direction:Vector2 = global_position.direction_to(player.global_position)
 		if player.is_lit || global_position.distance_to(player.global_position) < 500:
@@ -41,6 +53,21 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Front.visible = false
 			$Back.visible = true
+func check_for_death():
+	
+	for kill_candle in kill_candles:
+		
+		if kill_candle.is_lit != true:
+			
+			return
+	
+	var deathsound = AudioStreamPlayer.new()
+	get_tree().current_scene.add_child(deathsound)
+	deathsound.volume_db = 10
+	deathsound.stream = death_sound
+	deathsound.play()
+	queue_free()
+	
 func _on_shoot_timer_timeout() -> void:
 	spawn_bullet()
 
