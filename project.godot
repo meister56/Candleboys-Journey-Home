@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="PPJam"
+config/name="Candleboys Journey Home"
+config/description="Candleboy is lost, can you help him find his way home?"
 run/main_scene="res://Cutscenes/Intro.scn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [display]
 
