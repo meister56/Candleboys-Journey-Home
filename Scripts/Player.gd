@@ -9,7 +9,7 @@ var is_interacting: bool = false
 
 var color_type = "RED"
 var current_state: State = State.IDLE # Default to IDLE STATE
-@export var interact_range:float = 100
+@export var interact_range:float = 200
 @export var interaction_delay:float = 1.5
 #FOOTSTEP LOGIC
 @export var footstep_rate:float = 0.4
