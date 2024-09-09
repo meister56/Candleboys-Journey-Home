@@ -221,8 +221,6 @@ Kota56
 (for not giving up)
 Twonklez
  (For giving it his best)
-Pierporz 
-(for gamejam)
 you!
 (for giving candleboy a chance)
 
@@ -349,6 +347,7 @@ color = Color(0.129558, 0.129558, 0.129558, 1)
 [node name="CreditsTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ebdc6")
 autoplay = true
+stream_paused = true
 
 [node name="BouncyCandleBoy" type="Node2D" parent="." node_paths=PackedStringArray("start", "end")]
 position = Vector2(241, 912)

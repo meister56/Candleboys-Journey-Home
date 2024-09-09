@@ -55,7 +55,7 @@ offset_top = -22.0
 offset_right = 127.0
 grow_vertical = 0
 theme = ExtResource("1_y0o1p")
-text = "Version 1.0.0, PPjam"
+text = "Version 1.0.0"
 label_settings = ExtResource("3_yu0o0")
 horizontal_alignment = 1
 
